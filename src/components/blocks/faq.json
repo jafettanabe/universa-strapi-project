@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_faqs",
+  "info": {
+    "displayName": "faq"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "faqItems": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::faq-item.faq-item"
+    }
+  }
+}

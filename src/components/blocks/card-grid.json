@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_card_grids",
+  "info": {
+    "displayName": "card-grid"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.card-grid-item"
+    }
+  }
+}

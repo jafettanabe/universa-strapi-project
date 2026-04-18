@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_program_highlights",
+  "info": {
+    "displayName": "program-highlights"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "programs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::program.program"
+    }
+  }
+}

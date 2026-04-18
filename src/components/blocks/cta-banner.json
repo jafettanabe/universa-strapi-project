@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_blocks_cta_banners",
+  "info": {
+    "displayName": "cta-banner"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "overlayStrength": {
+      "type": "enumeration",
+      "enum": [
+        "light",
+        "medium",
+        "strong"
+      ],
+      "default": "medium"
+    },
+    "primaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    },
+    "secondaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_blocks_feature_lists",
+  "info": {
+    "displayName": "feature-list"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-item"
+    },
+    "columns": {
+      "type": "integer",
+      "default": 3
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "split-left",
+        "split-right"
+      ],
+      "default": "standard"
+    },
+    "sideImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "primaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    }
+  }
+}

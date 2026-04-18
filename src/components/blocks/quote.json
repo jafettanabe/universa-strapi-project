@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_quotes",
+  "info": {
+    "displayName": "quote"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "attribution": {
+      "type": "string"
+    }
+  }
+}

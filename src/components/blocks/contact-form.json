@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blocks_contact_forms",
+  "info": {
+    "displayName": "contact-form"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "successMessage": {
+      "type": "string"
+    },
+    "subjectOptions": {
+      "type": "json"
+    }
+  }
+}

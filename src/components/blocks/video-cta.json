@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_blocks_video_ctas",
+  "info": {
+    "displayName": "video-cta"
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "primaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "posterImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bgColor": {
+      "type": "string",
+      "default": "#EEF3F9"
+    }
+  }
+}

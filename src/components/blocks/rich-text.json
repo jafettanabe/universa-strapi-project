@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocks_rich_texts",
+  "info": {
+    "displayName": "rich-text"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

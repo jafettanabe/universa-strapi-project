@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_hero_carousels",
+  "info": {
+    "displayName": "hero-carousel"
+  },
+  "attributes": {
+    "autoplayMs": {
+      "type": "integer",
+      "default": 5500
+    },
+    "slides": {
+      "type": "component",
+      "repeatable": true,
+      "required": true,
+      "component": "blocks.hero-slide"
+    }
+  }
+}

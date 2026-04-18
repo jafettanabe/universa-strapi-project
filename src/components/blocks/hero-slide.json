@@ -1,0 +1,66 @@
+{
+  "collectionName": "components_blocks_hero_slides",
+  "info": {
+    "displayName": "hero-slide"
+  },
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "foregroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "textTone": {
+      "type": "enumeration",
+      "enum": [
+        "dark",
+        "light"
+      ],
+      "default": "light"
+    },
+    "primaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    },
+    "pillLabel": {
+      "type": "string"
+    },
+    "pillCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    },
+    "accentLabel": {
+      "type": "string"
+    },
+    "accentTitle": {
+      "type": "string"
+    },
+    "priceBadgeText": {
+      "type": "string"
+    },
+    "priceValue": {
+      "type": "string"
+    },
+    "priceSuffix": {
+      "type": "string"
+    },
+    "priceCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    }
+  }
+}
