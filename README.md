@@ -2,6 +2,7 @@
 
 Backend Strapi **v5** para modelar el contenido de **somosuniversa.com** como CMS headless: single types de configuración, páginas modulares con **Dynamic Zones**, entidades editoriales/listables y relaciones explícitas entre programas, FAQs y testimonios.
 
+
 ## Requisitos
 
 - Node.js **20–24** (ver `package.json` → `engines`)
