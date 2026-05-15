@@ -32,8 +32,8 @@ jobs:
             DATABASE_PORT=5432
             DATABASE_NAME=strapi
             DATABASE_USERNAME=strapi
-            DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
-            POSTGRES_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
+            DATABASE_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+            POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
             APP_KEYS=${{ secrets.APP_KEYS }}
             API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }}
             ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }}
