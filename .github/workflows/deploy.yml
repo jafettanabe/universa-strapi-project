@@ -21,6 +21,28 @@ jobs:
             cd /opt/strapi/universa-strapi-project
             sudo git fetch origin master
             sudo git reset --hard origin/master
+            # El repo no incluye .env; Compose usa env_file: .env — hay que crearlo en el VPS en cada deploy.
+            # Define estos secrets en GitHub → Settings → Secrets (Environment production): DATABASE_PASSWORD, APP_KEYS, API_TOKEN_SALT, ADMIN_JWT_SECRET, TRANSFER_TOKEN_SALT, ENCRYPTION_KEY, JWT_SECRET
+            sudo tee .env > /dev/null << EOF
+            HOST=0.0.0.0
+            PORT=1337
+            NODE_ENV=production
+            DATABASE_CLIENT=postgres
+            DATABASE_HOST=postgres
+            DATABASE_PORT=5432
+            DATABASE_NAME=strapi
+            DATABASE_USERNAME=strapi
+            DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
+            POSTGRES_PASSWORD=${{ secrets.DATABASE_PASSWORD }}
+            APP_KEYS=${{ secrets.APP_KEYS }}
+            API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }}
+            ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }}
+            TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }}
+            ENCRYPTION_KEY=${{ secrets.ENCRYPTION_KEY }}
+            JWT_SECRET=${{ secrets.JWT_SECRET }}
+            STRAPI_DISABLE_REMOTE_DATA_TRANSFER=false
+            EOF
+            sudo chmod 600 .env
             sudo docker compose up -d --build
             sudo docker image prune -f
             sudo docker compose ps
