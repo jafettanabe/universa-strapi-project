@@ -40,7 +40,6 @@ jobs:
             TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }}
             ENCRYPTION_KEY=${{ secrets.ENCRYPTION_KEY }}
             JWT_SECRET=${{ secrets.JWT_SECRET }}
-            STRAPI_DISABLE_REMOTE_DATA_TRANSFER=false
             EOF
             sudo chmod 600 .env
             sudo docker compose up -d --build
