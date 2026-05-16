@@ -7,7 +7,8 @@ services:
     ports:
       - "127.0.0.1:1337:1337"
     volumes:
-      - ./public/uploads:/app/public/uploads
+      # Todo `public`: el transfer necesita escribir backups de assets fuera de solo `uploads`.
+      - ./public:/app/public
     depends_on:
       - postgres
 

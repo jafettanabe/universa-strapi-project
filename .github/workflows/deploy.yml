@@ -38,8 +38,12 @@ jobs:
             TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }}
             ENCRYPTION_KEY=${{ secrets.ENCRYPTION_KEY }}
             JWT_SECRET=${{ secrets.JWT_SECRET }}
+            PUBLIC_URL=${{ vars.PUBLIC_URL }}
             EOF
             sudo chmod 600 .env
+            # Montaje ./public:/app/public — Strapi y data-transfer escriben backups fuera de uploads.
+            sudo mkdir -p public/uploads
+            sudo chown -R 1000:1000 public
             sudo docker compose up -d --build
             sudo docker image prune -f
             sudo docker compose ps
