@@ -19,19 +19,7 @@
       ]
     },
     "foregroundImageFocus": {
-      "type": "enumeration",
-      "enum": [
-        "center",
-        "top",
-        "bottom",
-        "left",
-        "right",
-        "top_left",
-        "top_right",
-        "bottom_left",
-        "bottom_right"
-      ],
-      "default": "center"
+      "type": "string"
     },
     "bgColor": {
       "type": "string"

@@ -204,20 +204,7 @@ export interface BlocksHeroSlide extends Struct.ComponentSchema {
     accentTitle: Schema.Attribute.String;
     bgColor: Schema.Attribute.String;
     foregroundImage: Schema.Attribute.Media<'images'>;
-    foregroundImageFocus: Schema.Attribute.Enumeration<
-      [
-        'center',
-        'top',
-        'bottom',
-        'left',
-        'right',
-        'top_left',
-        'top_right',
-        'bottom_left',
-        'bottom_right',
-      ]
-    > &
-      Schema.Attribute.DefaultTo<'center'>;
+    foregroundImageFocus: Schema.Attribute.String;
     pillCta: Schema.Attribute.Component<'shared.cta', false>;
     pillLabel: Schema.Attribute.String;
     priceBadgeText: Schema.Attribute.String;
