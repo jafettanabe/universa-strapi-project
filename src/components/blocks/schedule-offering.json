@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_blocks_schedule_offerings",
+  "info": {
+    "displayName": "schedule-offering"
+  },
+  "attributes": {
+    "level": {
+      "type": "string",
+      "required": true
+    },
+    "cycleLabel": {
+      "type": "string"
+    },
+    "days": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string"
+    },
+    "weeklyHours": {
+      "type": "string"
+    },
+    "levelDuration": {
+      "type": "string"
+    },
+    "timeSlot": {
+      "type": "string"
+    },
+    "shift": {
+      "type": "enumeration",
+      "enum": [
+        "matutino",
+        "vespertino",
+        "nocturno"
+      ],
+      "default": "nocturno"
+    },
+    "startDateLabel": {
+      "type": "string"
+    }
+  }
+}

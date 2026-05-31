@@ -694,6 +694,9 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'blocks.video-cta',
         'blocks.hero-carousel',
         'blocks.certifications',
+        'blocks.schedule-tabs',
+        'blocks.pricing-section',
+        'blocks.flex-differentiators',
       ]
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;
@@ -892,6 +895,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'blocks.video-cta',
         'blocks.hero-carousel',
         'blocks.certifications',
+        'blocks.schedule-tabs',
+        'blocks.pricing-section',
+        'blocks.flex-differentiators',
       ]
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;

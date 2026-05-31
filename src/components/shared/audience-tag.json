@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_audience_tags",
+  "info": {
+    "displayName": "audience-tag"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "ageRange": {
+      "type": "string"
+    }
+  }
+}

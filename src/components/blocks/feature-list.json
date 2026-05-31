@@ -27,7 +27,8 @@
       "enum": [
         "standard",
         "split-left",
-        "split-right"
+        "split-right",
+        "icon_grid"
       ],
       "default": "standard"
     },

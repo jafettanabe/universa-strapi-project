@@ -39,6 +39,8 @@ export interface BlocksCertifications extends Struct.ComponentSchema {
       'api::certification.certification'
     >;
     eyebrow: Schema.Attribute.String;
+    layout: Schema.Attribute.Enumeration<['default', 'badges']> &
+      Schema.Attribute.DefaultTo<'default'>;
     primaryCta: Schema.Attribute.Component<'shared.cta', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -56,6 +58,10 @@ export interface BlocksContactForm extends Struct.ComponentSchema {
     subtitle: Schema.Attribute.Text;
     successMessage: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<
+      ['default', 'advisor', 'diagnostic']
+    > &
+      Schema.Attribute.DefaultTo<'default'>;
   };
 }
 
@@ -129,11 +135,55 @@ export interface BlocksFeatureList extends Struct.ComponentSchema {
     eyebrow: Schema.Attribute.String;
     items: Schema.Attribute.Component<'shared.feature-item', true>;
     layout: Schema.Attribute.Enumeration<
-      ['standard', 'split-left', 'split-right']
+      ['standard', 'split-left', 'split-right', 'icon_grid']
     > &
       Schema.Attribute.DefaultTo<'standard'>;
     primaryCta: Schema.Attribute.Component<'shared.cta', false>;
     sideImage: Schema.Attribute.Media<'images'>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksFinancingRule extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_financing_rules';
+  info: {
+    displayName: 'financing-rule';
+  };
+  attributes: {
+    durationMonths: Schema.Attribute.Decimal;
+    frequencyKey: Schema.Attribute.Enumeration<
+      ['inmersivo', 'superintensivo', 'intensivo', 'semiintensivo', 'regular']
+    > &
+      Schema.Attribute.Required;
+    frequencyLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    maxInstallments: Schema.Attribute.Integer & Schema.Attribute.Required;
+    notes: Schema.Attribute.Text;
+  };
+}
+
+export interface BlocksFlexContrastItem extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_flex_contrast_items';
+  info: {
+    displayName: 'flex-contrast-item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    iconName: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    tone: Schema.Attribute.Enumeration<['positive', 'negative']> &
+      Schema.Attribute.DefaultTo<'positive'>;
+  };
+}
+
+export interface BlocksFlexDifferentiators extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_flex_differentiators';
+  info: {
+    displayName: 'flex-differentiators';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'blocks.flex-contrast-item', true>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
   };
@@ -160,6 +210,7 @@ export interface BlocksHero extends Struct.ComponentSchema {
   attributes: {
     alignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
       Schema.Attribute.DefaultTo<'left'>;
+    audienceTags: Schema.Attribute.Component<'shared.audience-tag', true>;
     backgroundImage: Schema.Attribute.Media<'images'>;
     eyebrow: Schema.Attribute.String;
     foregroundImage: Schema.Attribute.Media<'images'>;
@@ -232,6 +283,54 @@ export interface BlocksLogoCloud extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksPricingPlan extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_pricing_plans';
+  info: {
+    displayName: 'pricing-plan';
+  };
+  attributes: {
+    badgeText: Schema.Attribute.String;
+    benefits: Schema.Attribute.Component<'shared.feature-item', true>;
+    currency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'PEN'>;
+    description: Schema.Attribute.Text;
+    discountLabel: Schema.Attribute.String;
+    hoursCount: Schema.Attribute.Decimal;
+    isHighlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    planType: Schema.Attribute.Enumeration<
+      ['promo_2x1', 'contado', 'financiamiento', 'regular', 'hourly_package']
+    > &
+      Schema.Attribute.Required;
+    priceAmount: Schema.Attribute.Decimal;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    validUntilLabel: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksPricingSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_pricing_sections';
+  info: {
+    displayName: 'pricing-section';
+  };
+  attributes: {
+    customQuoteCta: Schema.Attribute.Component<'shared.cta', false>;
+    customQuoteText: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    financingBaseAmount: Schema.Attribute.Decimal;
+    financingRules: Schema.Attribute.Component<'blocks.financing-rule', true>;
+    layout: Schema.Attribute.Enumeration<['program', 'hourly']> &
+      Schema.Attribute.DefaultTo<'program'>;
+    paymentMethods: Schema.Attribute.Component<'shared.feature-item', true>;
+    plans: Schema.Attribute.Component<'blocks.pricing-plan', true>;
+    primaryCta: Schema.Attribute.Component<'shared.cta', false>;
+    registrationDeadlineLabel: Schema.Attribute.String;
+    regularPriceAmount: Schema.Attribute.Decimal;
+    regularPriceCurrency: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'PEN'>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksProgramHighlights extends Struct.ComponentSchema {
   collectionName: 'components_blocks_program_highlights';
   info: {
@@ -265,6 +364,54 @@ export interface BlocksRichText extends Struct.ComponentSchema {
   attributes: {
     content: Schema.Attribute.RichText;
     eyebrow: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksScheduleIntensity extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_schedule_intensities';
+  info: {
+    displayName: 'schedule-intensity';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    offerings: Schema.Attribute.Component<'blocks.schedule-offering', true>;
+    tabKey: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksScheduleOffering extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_schedule_offerings';
+  info: {
+    displayName: 'schedule-offering';
+  };
+  attributes: {
+    cycleLabel: Schema.Attribute.String;
+    days: Schema.Attribute.String;
+    frequency: Schema.Attribute.String;
+    level: Schema.Attribute.String & Schema.Attribute.Required;
+    levelDuration: Schema.Attribute.String;
+    shift: Schema.Attribute.Enumeration<
+      ['matutino', 'vespertino', 'nocturno']
+    > &
+      Schema.Attribute.DefaultTo<'nocturno'>;
+    startDateLabel: Schema.Attribute.String;
+    timeSlot: Schema.Attribute.String;
+    weeklyHours: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksScheduleTabs extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_schedule_tabs';
+  info: {
+    displayName: 'schedule-tabs';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    footnote: Schema.Attribute.Text;
+    intensities: Schema.Attribute.Component<'blocks.schedule-intensity', true>;
+    subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
   };
 }
@@ -382,6 +529,17 @@ export interface NavigationSubNavItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedAudienceTag extends Struct.ComponentSchema {
+  collectionName: 'components_shared_audience_tags';
+  info: {
+    displayName: 'audience-tag';
+  };
+  attributes: {
+    ageRange: Schema.Attribute.String;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedCta extends Struct.ComponentSchema {
   collectionName: 'components_shared_ctas';
   info: {
@@ -469,14 +627,22 @@ declare module '@strapi/strapi' {
       'blocks.ecosystem-item': BlocksEcosystemItem;
       'blocks.faq': BlocksFaq;
       'blocks.feature-list': BlocksFeatureList;
+      'blocks.financing-rule': BlocksFinancingRule;
+      'blocks.flex-contrast-item': BlocksFlexContrastItem;
+      'blocks.flex-differentiators': BlocksFlexDifferentiators;
       'blocks.gallery': BlocksGallery;
       'blocks.hero': BlocksHero;
       'blocks.hero-carousel': BlocksHeroCarousel;
       'blocks.hero-slide': BlocksHeroSlide;
       'blocks.logo-cloud': BlocksLogoCloud;
+      'blocks.pricing-plan': BlocksPricingPlan;
+      'blocks.pricing-section': BlocksPricingSection;
       'blocks.program-highlights': BlocksProgramHighlights;
       'blocks.quote': BlocksQuote;
       'blocks.rich-text': BlocksRichText;
+      'blocks.schedule-intensity': BlocksScheduleIntensity;
+      'blocks.schedule-offering': BlocksScheduleOffering;
+      'blocks.schedule-tabs': BlocksScheduleTabs;
       'blocks.stats': BlocksStats;
       'blocks.step-item': BlocksStepItem;
       'blocks.step-list': BlocksStepList;
@@ -485,6 +651,7 @@ declare module '@strapi/strapi' {
       'blocks.video-cta': BlocksVideoCta;
       'navigation.nav-item': NavigationNavItem;
       'navigation.sub-nav-item': NavigationSubNavItem;
+      'shared.audience-tag': SharedAudienceTag;
       'shared.cta': SharedCta;
       'shared.feature-item': SharedFeatureItem;
       'shared.seo': SharedSeo;

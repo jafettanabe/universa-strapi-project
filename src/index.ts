@@ -1,6 +1,13 @@
 import type { Core } from '@strapi/strapi';
 
 import { runUniversaSeed } from './bootstrap/universa-seed';
+import { upsertProgramaContinuoGrupalPage } from './bootstrap/programa-continuo-grupal-page';
+import { upsertProgramaContinuoPrivadoPage } from './bootstrap/programa-continuo-privado-page';
+import { upsertProgramaFlexPrivadoPage } from './bootstrap/programa-flex-privado-page';
+import { upsertSesionesOnDemandPrivadoPage } from './bootstrap/sesiones-on-demand-privado-page';
+import { upsertProgramasPage } from './bootstrap/programas-page';
+import { upsertHeaderProgramasNav } from './bootstrap/header-programas-nav';
+import { sanitizePromoContentFromCms } from './bootstrap/sanitize-promo-content';
 
 export default {
   /**
@@ -20,5 +27,19 @@ export default {
    */
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     await runUniversaSeed(strapi);
+    await sanitizePromoContentFromCms(strapi);
+    await upsertProgramaContinuoGrupalPage(strapi);
+    try {
+      await upsertProgramaContinuoPrivadoPage(strapi);
+    } catch (error) {
+      strapi.log.warn(
+        `[programa-continuo-privado] Upsert failed (certifications FK); continuing bootstrap. ${String(error)}`,
+      );
+    }
+    await upsertProgramaFlexPrivadoPage(strapi);
+    await upsertSesionesOnDemandPrivadoPage(strapi);
+    await upsertProgramasPage(strapi);
+    await upsertHeaderProgramasNav(strapi);
+    await sanitizePromoContentFromCms(strapi);
   },
 };

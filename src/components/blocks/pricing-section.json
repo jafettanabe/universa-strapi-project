@@ -1,0 +1,66 @@
+{
+  "collectionName": "components_blocks_pricing_sections",
+  "info": {
+    "displayName": "pricing-section"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "program",
+        "hourly"
+      ],
+      "default": "program"
+    },
+    "customQuoteText": {
+      "type": "text"
+    },
+    "customQuoteCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    },
+    "regularPriceAmount": {
+      "type": "decimal"
+    },
+    "regularPriceCurrency": {
+      "type": "string",
+      "default": "PEN"
+    },
+    "registrationDeadlineLabel": {
+      "type": "string"
+    },
+    "financingBaseAmount": {
+      "type": "decimal"
+    },
+    "plans": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.pricing-plan"
+    },
+    "financingRules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.financing-rule"
+    },
+    "paymentMethods": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-item"
+    },
+    "primaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    }
+  }
+}

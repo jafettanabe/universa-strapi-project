@@ -22,6 +22,14 @@
       "repeatable": false,
       "component": "shared.cta"
     },
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "badges"
+      ],
+      "default": "default"
+    },
     "certifications": {
       "type": "relation",
       "relation": "oneToMany",

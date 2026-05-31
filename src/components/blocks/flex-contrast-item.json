@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_blocks_flex_contrast_items",
+  "info": {
+    "displayName": "flex-contrast-item"
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "iconName": {
+      "type": "string"
+    },
+    "tone": {
+      "type": "enumeration",
+      "enum": [
+        "positive",
+        "negative"
+      ],
+      "default": "positive"
+    }
+  }
+}

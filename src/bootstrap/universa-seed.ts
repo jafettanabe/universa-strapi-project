@@ -1,20 +1,18 @@
 import type { Core } from '@strapi/strapi';
 
+import {
+  getProgramaContinuoGrupalPageData,
+  rt,
+  upsertProgramaContinuoGrupalPage,
+} from './programa-continuo-grupal-page';
+import { PROGRAMAS_NAV_CHILDREN } from './header-programas-nav';
+import { buildProgramasPageSections } from './programas-page';
+
+export { upsertProgramaContinuoGrupalPage };
+
 const SEED_STORE_TYPE = 'plugin' as const;
 const SEED_STORE_NAME = 'universa' as const;
 const SEED_KEY = 'bootstrap_seed_v1' as const;
-
-/**
- * Strapi stores Rich Text (Blocks) as a JSON string in the database layer.
- * Shape: array of block nodes (paragraph → text).
- */
-const rt = (...lines: string[]) =>
-  JSON.stringify(
-    lines.map((text) => ({
-      type: 'paragraph',
-      children: [{ type: 'text', text }],
-    }))
-  );
 
 export async function runUniversaSeed(strapi: Core.Strapi) {
   const store = strapi.store({ type: SEED_STORE_TYPE, name: SEED_STORE_NAME });
@@ -397,14 +395,7 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
           label: 'Programas',
           url: '/programas',
           openInNewTab: false,
-          children: [
-            { label: 'Universa Adultos', url: '/adultos', openInNewTab: false },
-            { label: 'Universa Juniors', url: '/juniors', openInNewTab: false },
-            { label: 'Universa Empresas', url: '/empresas', openInNewTab: false },
-            { label: 'Programa Continuo Grupal', url: '/programa-continuo-grupal', openInNewTab: false },
-            { label: 'Cursos', url: '/cursos', openInNewTab: false },
-            { label: 'Servicios', url: '/servicios', openInNewTab: false },
-          ],
+          children: [...PROGRAMAS_NAV_CHILDREN],
         },
         { label: 'Idiomas', url: '/idiomas', openInNewTab: false },
         { label: 'Comunidad Universa', url: '/comunidad-universa', openInNewTab: false },
@@ -815,16 +806,11 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
       excerpt: 'Explora nuestras rutas de aprendizaje.',
       showInNavigation: true,
       navigationLabel: 'Programas',
-      sections: [
-        {
-          __component: 'blocks.program-highlights',
-          title: 'Oferta principal',
-          subtitle: 'Adultos, Juniors y Empresas.',
-          programs: {
-            set: [programAdultos.documentId, programJuniors.documentId, programEmpresas.documentId],
-          },
-        },
-      ],
+      sections: buildProgramasPageSections([
+        programAdultos.documentId,
+        programJuniors.documentId,
+        programEmpresas.documentId,
+      ]),
     },
     {
       title: 'Adultos',
@@ -863,24 +849,7 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
         },
       ],
     },
-    {
-      title: 'Programa Continuo Grupal',
-      slug: 'programa-continuo-grupal',
-      pageType: 'landing' as const,
-      excerpt: 'Programa de continuidad para práctica constante.',
-      showInNavigation: true,
-      navigationLabel: 'Programa Continuo Grupal',
-      sections: [
-        {
-          __component: 'blocks.rich-text',
-          title: 'Aprendizaje continuo',
-          content: rt(
-            'Diseñado para sostener el ritmo de práctica con grupos estables y objetivos claros.',
-            'Ideal para quienes buscan mantener el inglés activo en su rutina.'
-          ),
-        },
-      ],
-    },
+    getProgramaContinuoGrupalPageData(),
     {
       title: 'Cursos',
       slug: 'cursos',
@@ -1052,12 +1021,15 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
         excerpt: page.excerpt,
         showInNavigation: page.showInNavigation,
         navigationLabel: page.navigationLabel,
-        hero: page.hero,
+        ...('hero' in page && page.hero ? { hero: page.hero } : {}),
         sections: page.sections,
-        seo: {
-          metaTitle: `${page.title} | Universa`,
-          metaDescription: page.excerpt,
-        },
+        seo:
+          'seo' in page && page.seo
+            ? page.seo
+            : {
+                metaTitle: `${page.title} | Universa`,
+                metaDescription: page.excerpt,
+              },
       },
       status: 'published',
     });

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_blocks_financing_rules",
+  "info": {
+    "displayName": "financing-rule"
+  },
+  "attributes": {
+    "frequencyKey": {
+      "type": "enumeration",
+      "enum": [
+        "inmersivo",
+        "superintensivo",
+        "intensivo",
+        "semiintensivo",
+        "regular"
+      ],
+      "required": true
+    },
+    "frequencyLabel": {
+      "type": "string",
+      "required": true
+    },
+    "maxInstallments": {
+      "type": "integer",
+      "required": true
+    },
+    "durationMonths": {
+      "type": "decimal"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

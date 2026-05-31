@@ -18,6 +18,15 @@
     },
     "subjectOptions": {
       "type": "json"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "advisor",
+        "diagnostic"
+      ],
+      "default": "default"
     }
   }
 }

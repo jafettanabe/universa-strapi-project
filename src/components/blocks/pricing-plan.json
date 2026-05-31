@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_blocks_pricing_plans",
+  "info": {
+    "displayName": "pricing-plan"
+  },
+  "attributes": {
+    "planType": {
+      "type": "enumeration",
+      "enum": [
+        "promo_2x1",
+        "contado",
+        "financiamiento",
+        "regular",
+        "hourly_package"
+      ],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "hoursCount": {
+      "type": "decimal"
+    },
+    "priceAmount": {
+      "type": "decimal"
+    },
+    "currency": {
+      "type": "string",
+      "default": "PEN"
+    },
+    "discountLabel": {
+      "type": "string"
+    },
+    "validUntilLabel": {
+      "type": "string"
+    },
+    "isHighlighted": {
+      "type": "boolean",
+      "default": false
+    },
+    "badgeText": {
+      "type": "string"
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-item"
+    }
+  }
+}

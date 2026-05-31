@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_schedule_tabs",
+  "info": {
+    "displayName": "schedule-tabs"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "footnote": {
+      "type": "text"
+    },
+    "intensities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.schedule-intensity"
+    }
+  }
+}

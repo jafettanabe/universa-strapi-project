@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blocks_schedule_intensities",
+  "info": {
+    "displayName": "schedule-intensity"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "tabKey": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "offerings": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.schedule-offering"
+    }
+  }
+}

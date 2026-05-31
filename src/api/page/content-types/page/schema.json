@@ -65,7 +65,10 @@
         "blocks.cta-banner",
         "blocks.video-cta",
         "blocks.hero-carousel",
-        "blocks.certifications"
+        "blocks.certifications",
+        "blocks.schedule-tabs",
+        "blocks.pricing-section",
+        "blocks.flex-differentiators"
       ]
     },
     "showInNavigation": {

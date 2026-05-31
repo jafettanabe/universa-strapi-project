@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_flex_differentiators",
+  "info": {
+    "displayName": "flex-differentiators"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.flex-contrast-item"
+    }
+  }
+}
