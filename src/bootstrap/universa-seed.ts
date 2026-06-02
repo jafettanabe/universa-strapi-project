@@ -418,13 +418,18 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
       footerNavigation: [
         { label: 'Nosotros', url: '/nosotros', openInNewTab: false },
         { label: 'Metodología', url: '/metodologia', openInNewTab: false },
-        { label: 'Programas', url: '/programas', openInNewTab: false },
+        {
+          label: 'Programas',
+          url: '/programas',
+          openInNewTab: false,
+          children: [...PROGRAMAS_NAV_CHILDREN],
+        },
         { label: 'Blog', url: '/blog', openInNewTab: false },
         { label: 'Contacto', url: '/contacto', openInNewTab: false },
       ],
       legalLinks: [
-        { label: 'Privacidad', url: '/privacidad', openInNewTab: false },
-        { label: 'Términos', url: '/terminos', openInNewTab: false },
+        { label: 'Política de Privacidad', url: '/privacidad', openInNewTab: false },
+        { label: 'Términos y Condiciones', url: '/terminos', openInNewTab: false },
       ],
       socialLinks: [
         { platform: 'instagram', label: 'Instagram', url: 'https://instagram.com/' },

@@ -270,6 +270,17 @@ export interface BlocksHeroSlide extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksLegalDocument extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_legal_documents';
+  info: {
+    displayName: 'legal-document';
+  };
+  attributes: {
+    body: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksLogoCloud extends Struct.ComponentSchema {
   collectionName: 'components_blocks_logo_clouds';
   info: {
@@ -634,6 +645,7 @@ declare module '@strapi/strapi' {
       'blocks.hero': BlocksHero;
       'blocks.hero-carousel': BlocksHeroCarousel;
       'blocks.hero-slide': BlocksHeroSlide;
+      'blocks.legal-document': BlocksLegalDocument;
       'blocks.logo-cloud': BlocksLogoCloud;
       'blocks.pricing-plan': BlocksPricingPlan;
       'blocks.pricing-section': BlocksPricingSection;

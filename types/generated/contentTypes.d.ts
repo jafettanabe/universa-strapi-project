@@ -898,6 +898,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'blocks.schedule-tabs',
         'blocks.pricing-section',
         'blocks.flex-differentiators',
+        'blocks.legal-document',
       ]
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;

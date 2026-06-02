@@ -68,7 +68,8 @@
         "blocks.certifications",
         "blocks.schedule-tabs",
         "blocks.pricing-section",
-        "blocks.flex-differentiators"
+        "blocks.flex-differentiators",
+        "blocks.legal-document"
       ]
     },
     "showInNavigation": {

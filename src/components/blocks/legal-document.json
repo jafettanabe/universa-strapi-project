@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_legal_documents",
+  "info": {
+    "displayName": "legal-document"
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

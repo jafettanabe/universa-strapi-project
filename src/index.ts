@@ -7,6 +7,8 @@ import { upsertProgramaFlexPrivadoPage } from './bootstrap/programa-flex-privado
 import { upsertSesionesOnDemandPrivadoPage } from './bootstrap/sesiones-on-demand-privado-page';
 import { upsertProgramasPage } from './bootstrap/programas-page';
 import { upsertHeaderProgramasNav } from './bootstrap/header-programas-nav';
+import { upsertFooterProgramasNav } from './bootstrap/footer-programas-nav';
+import { upsertLegalPages } from './bootstrap/legal-pages';
 import { sanitizePromoContentFromCms } from './bootstrap/sanitize-promo-content';
 
 export default {
@@ -40,6 +42,8 @@ export default {
     await upsertSesionesOnDemandPrivadoPage(strapi);
     await upsertProgramasPage(strapi);
     await upsertHeaderProgramasNav(strapi);
+    await upsertFooterProgramasNav(strapi);
+    await upsertLegalPages(strapi);
     await sanitizePromoContentFromCms(strapi);
   },
 };
