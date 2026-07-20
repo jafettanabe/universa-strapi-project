@@ -122,6 +122,12 @@
     "displayOrder": {
       "type": "integer",
       "default": 0
+    },
+    "scheduledClasses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::scheduled-class.scheduled-class",
+      "mappedBy": "program"
     }
   }
 }

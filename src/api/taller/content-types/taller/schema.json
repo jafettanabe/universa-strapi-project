@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "talleres",
+  "info": {
+    "singularName": "taller",
+    "pluralName": "talleres",
+    "displayName": "Taller"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombre",
+      "required": true
+    },
+    "resumen": {
+      "type": "text"
+    },
+    "descripcion": {
+      "type": "richtext"
+    },
+    "syllabus": {
+      "type": "richtext"
+    },
+    "precio": {
+      "type": "decimal",
+      "required": true
+    },
+    "precioConDescuento": {
+      "type": "decimal"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

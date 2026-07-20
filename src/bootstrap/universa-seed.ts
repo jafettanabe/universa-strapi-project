@@ -401,6 +401,7 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
         { label: 'Comunidad Universa', url: '/comunidad-universa', openInNewTab: false },
         { label: 'Impacto Universa', url: '/impacto-universa', openInNewTab: false },
         { label: 'Blog', url: '/blog', openInNewTab: false },
+        { label: 'Clases Programadas', url: '/clases', openInNewTab: false },
         { label: 'FAQs', url: '/faqs', openInNewTab: false },
         { label: 'Noticias', url: '/noticias', openInNewTab: false },
         { label: 'Contacto', url: '/contacto', openInNewTab: false },
@@ -455,14 +456,25 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
       },
       sections: [
         {
-          __component: 'blocks.hero',
-          eyebrow: 'Inglés con propósito',
-          title: 'Aprende inglés. Transforma tu futuro.',
-          subtitle:
-            'Programas adaptados a tu ritmo, objetivos y contexto — con acompañamiento humano, práctica real y tecnología que te ordena el camino.',
-          alignment: 'left',
-          primaryCta: { label: 'Ver programas', url: '/programas', style: 'primary' },
-          secondaryCta: { label: 'Agendar asesoría', url: '/contacto', style: 'secondary' },
+          __component: 'blocks.hero-carousel',
+          autoplayMs: 6000,
+          slides: [
+            {
+              title: 'Aprende inglés online con el programa hecho para ti',
+              subtitle:
+                'En Universa no creemos en "un programa para todos". Diseñamos siete formas distintas de aprender inglés, para que elijas la que se ajusta a tu ritmo, tu presupuesto y tus objetivos, con el respaldo de National Geographic Learning y certificación British Council.',
+              textTone: 'dark',
+              primaryCta: { label: 'Descubre tu programa ideal →', url: '/programas', style: 'primary' },
+              secondaryCta: { label: 'Hacer mi Placement Test →', url: '/test', style: 'secondary' },
+            },
+            {
+              title: 'Aprende inglés. Transforma tu futuro.',
+              subtitle: 'Programas que se adaptan al ritmo, objetivos y contexto de cada estudiante.',
+              textTone: 'dark',
+              pillLabel: 'Hablemos',
+              pillCta: { label: 'Habla con un asesor', url: '/contacto', style: 'secondary' },
+            },
+          ],
         },
         {
           __component: 'blocks.text-image',

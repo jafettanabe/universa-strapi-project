@@ -1,6 +1,7 @@
 import type { Core } from '@strapi/strapi';
 
 import { runUniversaSeed } from './bootstrap/universa-seed';
+import { seedBlogPostsFromFrontend } from './bootstrap/blog-posts-seed';
 import { upsertProgramaContinuoGrupalPage } from './bootstrap/programa-continuo-grupal-page';
 import { upsertProgramaContinuoPrivadoPage } from './bootstrap/programa-continuo-privado-page';
 import { upsertProgramaFlexPrivadoPage } from './bootstrap/programa-flex-privado-page';
@@ -10,6 +11,8 @@ import { upsertHeaderProgramasNav } from './bootstrap/header-programas-nav';
 import { upsertFooterProgramasNav } from './bootstrap/footer-programas-nav';
 import { upsertLegalPages } from './bootstrap/legal-pages';
 import { sanitizePromoContentFromCms } from './bootstrap/sanitize-promo-content';
+import { bootstrapScheduledClasses } from './bootstrap/scheduled-classes-seed';
+import { bootstrapTalleres } from './bootstrap/talleres-seed';
 
 export default {
   /**
@@ -29,6 +32,7 @@ export default {
    */
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     await runUniversaSeed(strapi);
+    await seedBlogPostsFromFrontend(strapi);
     await sanitizePromoContentFromCms(strapi);
     await upsertProgramaContinuoGrupalPage(strapi);
     try {
@@ -45,5 +49,7 @@ export default {
     await upsertFooterProgramasNav(strapi);
     await upsertLegalPages(strapi);
     await sanitizePromoContentFromCms(strapi);
+    await bootstrapScheduledClasses(strapi);
+    await bootstrapTalleres(strapi);
   },
 };

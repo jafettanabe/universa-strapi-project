@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scheduled_classes",
+  "info": {
+    "singularName": "scheduled-class",
+    "pluralName": "scheduled-classes",
+    "displayName": "Clases Programadas",
+    "description": "Sección para programar clases por programa, horario y profesor."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Básico",
+        "Intermedio",
+        "Avanzado"
+      ],
+      "default": "Básico"
+    },
+    "day": {
+      "type": "enumeration",
+      "enum": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado",
+        "Domingo"
+      ],
+      "default": "Lunes"
+    },
+    "schedule": {
+      "type": "string",
+      "required": true
+    },
+    "teacher": {
+      "type": "string",
+      "required": true
+    },
+    "whatsappNumber": {
+      "type": "string"
+    },
+    "program": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::program.program",
+      "inversedBy": "scheduledClasses"
+    }
+  }
+}

@@ -37,6 +37,11 @@
       "repeatable": false,
       "component": "shared.cta"
     },
+    "secondaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    },
     "pillLabel": {
       "type": "string"
     },

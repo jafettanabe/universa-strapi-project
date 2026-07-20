@@ -912,6 +912,40 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPlacementSubmissionPlacementSubmission
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'placement_submissions';
+  info: {
+    displayName: 'Placement Submission';
+    pluralName: 'placement-submissions';
+    singularName: 'placement-submission';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    age: Schema.Attribute.Integer & Schema.Attribute.Required;
+    answers: Schema.Attribute.JSON & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    level: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::placement-submission.placement-submission'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    score: Schema.Attribute.Integer & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
   collectionName: 'programs';
   info: {
@@ -958,6 +992,10 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
       ['adultos', 'juniors', 'empresas', 'continuo', 'curso', 'servicio']
     >;
     publishedAt: Schema.Attribute.DateTime;
+    scheduledClasses: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::scheduled-class.scheduled-class'
+    >;
     scheduleText: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     shortDescription: Schema.Attribute.Text;
@@ -970,6 +1008,56 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiScheduledClassScheduledClass
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'scheduled_classes';
+  info: {
+    description: 'Secci\u00F3n para programar clases por programa, horario y profesor.';
+    displayName: 'Clases Programadas';
+    pluralName: 'scheduled-classes';
+    singularName: 'scheduled-class';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    day: Schema.Attribute.Enumeration<
+      [
+        'Lunes',
+        'Martes',
+        'Mi\u00E9rcoles',
+        'Jueves',
+        'Viernes',
+        'S\u00E1bado',
+        'Domingo',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'Lunes'>;
+    level: Schema.Attribute.Enumeration<
+      ['B\u00E1sico', 'Intermedio', 'Avanzado']
+    > &
+      Schema.Attribute.DefaultTo<'B\u00E1sico'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::scheduled-class.scheduled-class'
+    > &
+      Schema.Attribute.Private;
+    program: Schema.Attribute.Relation<'manyToOne', 'api::program.program'>;
+    publishedAt: Schema.Attribute.DateTime;
+    schedule: Schema.Attribute.String & Schema.Attribute.Required;
+    teacher: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatsappNumber: Schema.Attribute.String;
   };
 }
 
@@ -1011,6 +1099,41 @@ export interface ApiSiteSettingsSiteSetting extends Struct.SingleTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     whatsappNumber: Schema.Attribute.String;
+  };
+}
+
+export interface ApiTallerTaller extends Struct.CollectionTypeSchema {
+  collectionName: 'talleres';
+  info: {
+    displayName: 'Taller';
+    pluralName: 'talleres';
+    singularName: 'taller';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descripcion: Schema.Attribute.RichText;
+    imagen: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::taller.taller'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    precio: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    precioConDescuento: Schema.Attribute.Decimal;
+    publishedAt: Schema.Attribute.DateTime;
+    resumen: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID<'nombre'> & Schema.Attribute.Required;
+    syllabus: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1584,8 +1707,11 @@ declare module '@strapi/strapi' {
       'api::language.language': ApiLanguageLanguage;
       'api::news-article.news-article': ApiNewsArticleNewsArticle;
       'api::page.page': ApiPagePage;
+      'api::placement-submission.placement-submission': ApiPlacementSubmissionPlacementSubmission;
       'api::program.program': ApiProgramProgram;
+      'api::scheduled-class.scheduled-class': ApiScheduledClassScheduledClass;
       'api::site-settings.site-setting': ApiSiteSettingsSiteSetting;
+      'api::taller.taller': ApiTallerTaller;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

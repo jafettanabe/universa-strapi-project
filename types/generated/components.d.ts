@@ -263,6 +263,7 @@ export interface BlocksHeroSlide extends Struct.ComponentSchema {
     priceSuffix: Schema.Attribute.String;
     priceValue: Schema.Attribute.String;
     primaryCta: Schema.Attribute.Component<'shared.cta', false>;
+    secondaryCta: Schema.Attribute.Component<'shared.cta', false>;
     subtitle: Schema.Attribute.Text;
     textTone: Schema.Attribute.Enumeration<['dark', 'light']> &
       Schema.Attribute.DefaultTo<'light'>;

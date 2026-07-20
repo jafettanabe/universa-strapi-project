@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "placement_submissions",
+  "info": {
+    "singularName": "placement-submission",
+    "pluralName": "placement-submissions",
+    "displayName": "Placement Submission"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "age": {
+      "type": "integer",
+      "required": true
+    },
+    "score": {
+      "type": "integer",
+      "required": true
+    },
+    "level": {
+      "type": "string",
+      "required": true
+    },
+    "answers": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
