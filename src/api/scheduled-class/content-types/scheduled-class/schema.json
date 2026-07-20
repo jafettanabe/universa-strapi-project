@@ -24,17 +24,7 @@
       "default": "Básico"
     },
     "day": {
-      "type": "enumeration",
-      "enum": [
-        "Lunes",
-        "Martes",
-        "Miércoles",
-        "Jueves",
-        "Viernes",
-        "Sábado",
-        "Domingo"
-      ],
-      "default": "Lunes"
+      "type": "string"
     },
     "schedule": {
       "type": "string",
@@ -42,7 +32,11 @@
     },
     "teacher": {
       "type": "string",
-      "required": true
+      "required": false
+    },
+    "isFull": {
+      "type": "boolean",
+      "default": false
     },
     "whatsappNumber": {
       "type": "string"

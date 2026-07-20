@@ -1027,18 +1027,8 @@ export interface ApiScheduledClassScheduledClass
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    day: Schema.Attribute.Enumeration<
-      [
-        'Lunes',
-        'Martes',
-        'Mi\u00E9rcoles',
-        'Jueves',
-        'Viernes',
-        'S\u00E1bado',
-        'Domingo',
-      ]
-    > &
-      Schema.Attribute.DefaultTo<'Lunes'>;
+    day: Schema.Attribute.String;
+    isFull: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     level: Schema.Attribute.Enumeration<
       ['B\u00E1sico', 'Intermedio', 'Avanzado']
     > &
@@ -1052,7 +1042,7 @@ export interface ApiScheduledClassScheduledClass
     program: Schema.Attribute.Relation<'manyToOne', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;
     schedule: Schema.Attribute.String & Schema.Attribute.Required;
-    teacher: Schema.Attribute.String & Schema.Attribute.Required;
+    teacher: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
