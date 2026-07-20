@@ -4,6 +4,18 @@ import path from 'path';
 
 export async function seedBlogPostsFromFrontend(strapi: Core.Strapi) {
   const logFile = path.resolve(process.cwd(), '.tmp/seeder-log.txt');
+  const writeLog = (content: string) => {
+    try {
+      const dir = path.dirname(logFile);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      fs.writeFileSync(logFile, content, 'utf8');
+    } catch (e) {
+      // Ignore log file writing errors in read-only / deployment environments
+    }
+  };
+
   let logContent = `Seeder started at ${new Date().toISOString()}\n`;
   logContent += `cwd: ${process.cwd()}\n`;
 
@@ -12,7 +24,7 @@ export async function seedBlogPostsFromFrontend(strapi: Core.Strapi) {
   
   if (!fs.existsSync(jsonPath)) {
     logContent += `Error: json file not found.\n`;
-    fs.writeFileSync(logFile, logContent, 'utf8');
+    writeLog(logContent);
     strapi.log.info(`[blog-posts-seed] Archivo local JSON del frontend no encontrado en: ${jsonPath}. Se omite el semillado.`);
     return;
   }
@@ -84,5 +96,5 @@ export async function seedBlogPostsFromFrontend(strapi: Core.Strapi) {
     strapi.log.error(`[blog-posts-seed] Error al ejecutar el semillado de blogs: ${String(error)}`);
   }
 
-  fs.writeFileSync(logFile, logContent, 'utf8');
+  writeLog(logContent);
 }
