@@ -19,7 +19,9 @@
       "enum": [
         "Básico",
         "Intermedio",
-        "Avanzado"
+        "Intermedio Alto",
+        "Avanzado",
+        "Mixto"
       ],
       "default": "Básico"
     },

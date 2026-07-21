@@ -1030,7 +1030,7 @@ export interface ApiScheduledClassScheduledClass
     day: Schema.Attribute.String;
     isFull: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     level: Schema.Attribute.Enumeration<
-      ['B\u00E1sico', 'Intermedio', 'Avanzado']
+      ['B\u00E1sico', 'Intermedio', 'Intermedio Alto', 'Avanzado', 'Mixto']
     > &
       Schema.Attribute.DefaultTo<'B\u00E1sico'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
