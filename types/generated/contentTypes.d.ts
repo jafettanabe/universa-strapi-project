@@ -538,6 +538,44 @@ export interface ApiCommunityOpportunityCommunityOpportunity
   };
 }
 
+export interface ApiComplaintComplaint extends Struct.CollectionTypeSchema {
+  collectionName: 'complaints';
+  info: {
+    displayName: 'Reclamaci\u00F3n o Queja';
+    pluralName: 'complaints';
+    singularName: 'complaint';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    documentNumber: Schema.Attribute.String & Schema.Attribute.Required;
+    documentType: Schema.Attribute.Enumeration<
+      ['DNI', 'CE', 'Pasaporte', 'RUC', 'Otro']
+    > &
+      Schema.Attribute.Required;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::complaint.complaint'
+    > &
+      Schema.Attribute.Private;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    type: Schema.Attribute.Enumeration<['queja', 'reclamo']> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFaqItemFaqItem extends Struct.CollectionTypeSchema {
   collectionName: 'faq_items';
   info: {
@@ -1689,6 +1727,7 @@ declare module '@strapi/strapi' {
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::certification.certification': ApiCertificationCertification;
       'api::community-opportunity.community-opportunity': ApiCommunityOpportunityCommunityOpportunity;
+      'api::complaint.complaint': ApiComplaintComplaint;
       'api::faq-item.faq-item': ApiFaqItemFaqItem;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;

@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "complaints",
+  "info": {
+    "singularName": "complaint",
+    "pluralName": "complaints",
+    "displayName": "Reclamación o Queja"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "queja",
+        "reclamo"
+      ],
+      "required": true
+    },
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "documentType": {
+      "type": "enumeration",
+      "enum": [
+        "DNI",
+        "CE",
+        "Pasaporte",
+        "RUC",
+        "Otro"
+      ],
+      "required": true
+    },
+    "documentNumber": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
