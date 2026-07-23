@@ -938,6 +938,7 @@ export interface ApiPlacementSubmissionPlacementSubmission
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     score: Schema.Attribute.Integer & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
