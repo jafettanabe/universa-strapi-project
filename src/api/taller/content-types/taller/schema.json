@@ -28,6 +28,9 @@
     "syllabus": {
       "type": "richtext"
     },
+    "alTerminarPodras": {
+      "type": "richtext"
+    },
     "precio": {
       "type": "decimal",
       "required": true
