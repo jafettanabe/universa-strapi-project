@@ -13,6 +13,7 @@ import { upsertLegalPages } from './bootstrap/legal-pages';
 import { sanitizePromoContentFromCms } from './bootstrap/sanitize-promo-content';
 import { bootstrapScheduledClasses } from './bootstrap/scheduled-classes-seed';
 import { bootstrapTalleres } from './bootstrap/talleres-seed';
+import { upsertServiciosPage } from './bootstrap/servicios-page';
 
 export default {
   /**
@@ -45,6 +46,7 @@ export default {
     await upsertProgramaFlexPrivadoPage(strapi);
     await upsertSesionesOnDemandPrivadoPage(strapi);
     await upsertProgramasPage(strapi);
+    await upsertServiciosPage(strapi);
     await upsertHeaderProgramasNav(strapi);
     await upsertFooterProgramasNav(strapi);
     await upsertLegalPages(strapi);
