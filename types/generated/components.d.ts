@@ -535,6 +535,7 @@ export interface NavigationSubNavItem extends Struct.ComponentSchema {
     displayName: 'sub-nav-item';
   };
   attributes: {
+    children: Schema.Attribute.Component<'navigation.sub-nav-item', true>;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     url: Schema.Attribute.String;
