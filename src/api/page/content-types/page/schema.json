@@ -69,7 +69,9 @@
         "blocks.schedule-tabs",
         "blocks.pricing-section",
         "blocks.flex-differentiators",
-        "blocks.legal-document"
+        "blocks.legal-document",
+        "blocks.comparison-table",
+        "blocks.levels-chart"
       ]
     },
     "showInNavigation": {

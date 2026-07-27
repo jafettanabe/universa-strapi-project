@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blocks_levels_charts",
+  "info": {
+    "displayName": "levels-chart",
+    "icon": "chart",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "eyebrow": {
+      "type": "string"
+    }
+  }
+}

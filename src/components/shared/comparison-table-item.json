@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_shared_comparison_table_items",
+  "info": {
+    "displayName": "comparison-table-item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "modality": {
+      "type": "string"
+    },
+    "groupSize": {
+      "type": "string"
+    },
+    "schedule": {
+      "type": "string"
+    },
+    "idealFor": {
+      "type": "string"
+    },
+    "cardDescription": {
+      "type": "text"
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": "Ver detalles del programa"
+    },
+    "ctaUrl": {
+      "type": "string"
+    },
+    "slugKey": {
+      "type": "string"
+    }
+  }
+}

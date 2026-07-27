@@ -937,6 +937,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'blocks.pricing-section',
         'blocks.flex-differentiators',
         'blocks.legal-document',
+        'blocks.comparison-table',
+        'blocks.levels-chart',
       ]
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;

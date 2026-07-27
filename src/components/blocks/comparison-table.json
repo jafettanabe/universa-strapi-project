@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_blocks_comparison_tables",
+  "info": {
+    "displayName": "comparison-table",
+    "icon": "table",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cardsTitle": {
+      "type": "string"
+    },
+    "cardsDescription": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.comparison-table-item"
+    }
+  }
+}

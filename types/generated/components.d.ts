@@ -47,6 +47,22 @@ export interface BlocksCertifications extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksComparisonTable extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_comparison_tables';
+  info: {
+    description: '';
+    displayName: 'comparison-table';
+    icon: 'table';
+  };
+  attributes: {
+    cardsDescription: Schema.Attribute.Text;
+    cardsTitle: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    items: Schema.Attribute.Component<'shared.comparison-table-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksContactForm extends Struct.ComponentSchema {
   collectionName: 'components_blocks_contact_forms';
   info: {
@@ -278,6 +294,20 @@ export interface BlocksLegalDocument extends Struct.ComponentSchema {
   };
   attributes: {
     body: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksLevelsChart extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_levels_charts';
+  info: {
+    description: '';
+    displayName: 'levels-chart';
+    icon: 'chart';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -535,7 +565,7 @@ export interface NavigationSubNavItem extends Struct.ComponentSchema {
     displayName: 'sub-nav-item';
   };
   attributes: {
-    children: Schema.Attribute.Component<'navigation.sub-nav-item', true>;
+    children: Schema.Attribute.Component<'navigation.sub-sub-nav-item', true>;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     url: Schema.Attribute.String;
@@ -562,6 +592,26 @@ export interface SharedAudienceTag extends Struct.ComponentSchema {
   attributes: {
     ageRange: Schema.Attribute.String;
     label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedComparisonTableItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_comparison_table_items';
+  info: {
+    description: '';
+    displayName: 'comparison-table-item';
+  };
+  attributes: {
+    cardDescription: Schema.Attribute.Text;
+    ctaLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Ver detalles del programa'>;
+    ctaUrl: Schema.Attribute.String;
+    groupSize: Schema.Attribute.String;
+    idealFor: Schema.Attribute.String;
+    modality: Schema.Attribute.String;
+    schedule: Schema.Attribute.String;
+    slugKey: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -646,6 +696,7 @@ declare module '@strapi/strapi' {
       'blocks.card-grid': BlocksCardGrid;
       'blocks.card-grid-item': BlocksCardGridItem;
       'blocks.certifications': BlocksCertifications;
+      'blocks.comparison-table': BlocksComparisonTable;
       'blocks.contact-form': BlocksContactForm;
       'blocks.cta-banner': BlocksCtaBanner;
       'blocks.ecosystem': BlocksEcosystem;
@@ -660,6 +711,7 @@ declare module '@strapi/strapi' {
       'blocks.hero-carousel': BlocksHeroCarousel;
       'blocks.hero-slide': BlocksHeroSlide;
       'blocks.legal-document': BlocksLegalDocument;
+      'blocks.levels-chart': BlocksLevelsChart;
       'blocks.logo-cloud': BlocksLogoCloud;
       'blocks.pricing-plan': BlocksPricingPlan;
       'blocks.pricing-section': BlocksPricingSection;
@@ -679,6 +731,7 @@ declare module '@strapi/strapi' {
       'navigation.sub-nav-item': NavigationSubNavItem;
       'navigation.sub-sub-nav-item': NavigationSubSubNavItem;
       'shared.audience-tag': SharedAudienceTag;
+      'shared.comparison-table-item': SharedComparisonTableItem;
       'shared.cta': SharedCta;
       'shared.feature-item': SharedFeatureItem;
       'shared.seo': SharedSeo;
