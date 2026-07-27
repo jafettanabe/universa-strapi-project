@@ -542,6 +542,18 @@ export interface NavigationSubNavItem extends Struct.ComponentSchema {
   };
 }
 
+export interface NavigationSubSubNavItem extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_sub_sub_nav_items';
+  info: {
+    displayName: 'sub-sub-nav-item';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SharedAudienceTag extends Struct.ComponentSchema {
   collectionName: 'components_shared_audience_tags';
   info: {
@@ -665,6 +677,7 @@ declare module '@strapi/strapi' {
       'blocks.video-cta': BlocksVideoCta;
       'navigation.nav-item': NavigationNavItem;
       'navigation.sub-nav-item': NavigationSubNavItem;
+      'navigation.sub-sub-nav-item': NavigationSubSubNavItem;
       'shared.audience-tag': SharedAudienceTag;
       'shared.cta': SharedCta;
       'shared.feature-item': SharedFeatureItem;
