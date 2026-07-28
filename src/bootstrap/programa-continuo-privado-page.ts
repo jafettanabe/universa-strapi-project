@@ -69,182 +69,110 @@ async function ensurePrivadoCertifications(strapi: Core.Strapi) {
   }
 
   return documentIds;
-}
-
-export function getProgramaContinuoPrivadoPageData(certificationIds: string[]) {
+}export function getProgramaContinuoPrivadoPageData(certificationIds: string[]) {
   return {
     title: 'Programa Continuo Privado',
     slug: SLUG,
     pageType: 'landing' as const,
     excerpt:
-      'Clases 1 a 1 con tu profesor en tiempo real. Atención exclusiva, horarios flexibles y certificación internacional.',
+      'Aprende inglés a tu propio ritmo con sesiones exclusivas 1 a 1, horario adaptable y la atención enfocada de un profesor particular.',
     showInNavigation: true,
     navigationLabel: 'Programa Continuo Privado',
+    hero: {
+      eyebrow: 'Individual 1 a 1',
+      title: 'Programa Continuo Privado: tu ritmo, tu horario, toda la atención para ti',
+      subtitle:
+        'El estándar académico más alto con la exclusividad y flexibilidad de un tutor personal. Diseñado para optimizar tu tiempo de práctica y lograr fluidez real.',
+      variant: 'gradient_organic',
+      alignment: 'left',
+      audienceTags: [
+        { label: 'Adolescentes', ageRange: '14 - 17 años' },
+        { label: 'Adultos', ageRange: '18 - 49 años' },
+        { label: 'Seniors', ageRange: '50+ años' },
+      ],
+      primaryCta: {
+        label: 'Empieza tu Programa Continuo Privado',
+        url: 'https://wa.me/51945311934?text=Hola,%20quiero%20más%20información%20sobre%20el%20Programa%20Continuo%20Privado',
+        style: 'primary',
+      },
+    },
     sections: [
       {
-        __component: 'blocks.hero',
-        eyebrow: 'Universa English Program · 1 TO 1 SESSIONS',
-        title: 'Programa Continuo Privado',
-        subtitle:
-          'Clases de inglés en tiempo real a través de videoconferencias en vivo. Interactúa directamente con tu profesor en un entorno 100% personalizado, con enfoque comunicativo y atención exclusiva.',
-        variant: 'gradient_organic',
-        alignment: 'left',
-        audienceTags: [
-          { label: 'Adolescentes', ageRange: '14 - 17 años' },
-          { label: 'Adultos', ageRange: '18 - 49 años' },
-          { label: 'Seniors', ageRange: '50+ años' },
-        ],
-        primaryCta: {
-          label: 'Cotizar con un asesor',
-          url: '#cotizar',
-          style: 'primary',
-        },
-      },
-      {
         __component: 'blocks.text-image',
-        eyebrow: 'Descripción',
-        title: '¿Qué desarrollamos con el Programa?',
+        eyebrow: 'Introducción',
+        title: '¿Qué es el Programa Continuo Privado?',
         body: rt(
-          'Desarrollo de habilidades lingüísticas fundamentales: expresión oral, expresión escrita, comprensión auditiva y comprensión lectora.',
-          'Competencias que perfeccionan el uso del lenguaje: gramatical, léxica, pragmática, discursiva y fonética.',
-          'Un enfoque formativo y práctico en comunicación integral, adaptado 100% a tus objetivos.',
+          'El Programa Continuo Privado es la versión individual de nuestro programa estructurado por niveles que guarda correlación con el Marco Común Europeo de Referencia para las lenguas (MCER): mismo estándar académico de 120 horas por nivel, mismo material de National Geographic Learning, pero en sesiones exclusivas 1 a 1 con horario preestablecido y/o programable.',
         ),
         imagePosition: 'right',
       },
       {
         __component: 'blocks.feature-list',
-        eyebrow: 'Exclusividad Universa',
-        title: 'Características del programa privado',
-        subtitle:
-          '1 to 1 con el profesor · Todos los niveles desde Functional (A1) hasta Proficient (C1)',
+        eyebrow: 'Ventajas de la atención individual',
+        title: 'Beneficios de la atención individual',
+        subtitle: 'Atención 100% dedicada a potenciar tus habilidades.',
         columns: 3,
         layout: 'standard',
         items: [
           {
-            title: 'Clases 1 to 1 con el profesor',
-            description:
-              'Atención 100% exclusiva con un docente dedicado a tu ritmo, objetivos y estilo de aprendizaje.',
-            iconName: 'user-check',
+            title: 'Ritmo Adaptado',
+            description: 'Ritmo 100% adaptado a la velocidad de aprendizaje del estudiante.',
+            iconName: 'clock',
           },
           {
-            title: 'Horarios flexibles',
-            description:
-              'Horarios preestablecidos, programables y/o reprogramables según tu disponibilidad.',
-            iconName: 'calendar-clock',
-          },
-          {
-            title: 'SFA: Study From Anywhere',
-            description: 'Estudia desde cualquier parte del mundo con laptop e internet.',
-            iconName: 'globe',
-          },
-          {
-            title: 'Material National Geographic Learning',
-            description: 'Material online y físico con envíos a nivel nacional (Perú) y online mundial.',
-            iconName: 'book-open',
-          },
-          {
-            title: 'Plataforma Online Practice Spark',
-            description: 'Plataforma interactiva de National Geographic Learning.',
-            iconName: 'laptop',
-          },
-          {
-            title: 'Conversation Clubs Universa',
-            description: 'Practica conversaciones reales en inglés y gana confianza al hablar.',
+            title: 'Mayor conversación',
+            description: 'Mayor tiempo de práctica oral por sesión, sin compartir tiempo con compañeros.',
             iconName: 'message-circle',
           },
           {
-            title: 'Course Advance',
-            description:
-              'Avance hasta 2x más rápido que métodos tradicionales. Cada nivel ≈ 120 horas cronológicas.',
-            iconName: 'zap',
+            title: 'Docente enfocado',
+            description: 'Docente enfocado exclusivamente en las fortalezas y áreas de mejora del estudiante.',
+            iconName: 'user-check',
           },
-          {
-            title: 'Currículas acordes con el MCER',
-            description: 'Alineación internacional con el Marco Común Europeo (A1 a C1/C2).',
-            iconName: 'award',
-          },
-          {
-            title: 'Amplio rango horario',
-            description: 'Clases desde las 7:00 am hasta las 11:00 pm (GMT-5), hora Perú.',
-            iconName: 'clock',
-          },
-        ],
-      },
-      {
-        __component: 'blocks.stats',
-        eyebrow: 'Niveles Universa',
-        title: 'Aprende inglés 2x más rápido',
-        subtitle:
-          'Programas de Regular a Superintensivo con avance acelerado mediante nuestro Course Advance.',
-        items: [
-          { value: 'A1', label: 'Functional', description: 'Nivel inicial' },
-          { value: 'A2-B1', label: 'Intermediate', description: 'Progresión media' },
-          { value: 'B2', label: 'Upper Intermediate', description: 'Fluidez avanzada' },
-          { value: 'C1', label: 'Proficient', description: 'Dominio del idioma' },
         ],
       },
       {
         __component: 'blocks.quote',
-        eyebrow: 'Flexibilidad total',
+        eyebrow: '¿Para quién es ideal?',
         quote:
-          'Horarios preestablecidos, programables y/o reprogramables. Válido también para Programa Continuo Grupal.',
+          'Este programa es ideal para estudiantes que valoran la constancia de una estructura clara y un inglés integral (General English), pero prefieren una atención personalizada del profesor.',
         attribution: 'Programa Continuo Privado · Universa',
       },
       {
-        __component: 'blocks.certifications',
-        eyebrow: 'Certificaciones',
-        title: 'Hasta doble certificación internacional',
-        subtitle: '+ certificación de finalización Universa',
-        body: 'Ten opción de obtener hasta doble certificación internacional más tu certificado de completion al finalizar tu nivel.',
-        layout: 'badges',
-        certifications: { set: certificationIds },
-        primaryCta: {
-          label: 'Consultar requisitos',
-          url: '#cotizar',
-          style: 'primary',
+        __component: 'blocks.text-image',
+        eyebrow: 'Comparativa',
+        title: 'Diferencia con Flex Signature',
+        body: rt(
+          'El Programa Continuo Privado sigue la estructura por niveles, con 120 horas académicas como estándar. Flex Signature, en cambio, es nuestro programa premium: no tiene niveles fijos, y se diseña por completo alrededor de un objetivo puntual.',
+        ),
+        imagePosition: 'left',
+        cta: {
+          label: 'Conoce Flex Signature, nuestra línea premium →',
+          url: '/programa-flex-privado',
+          style: 'secondary',
         },
-      },
-      {
-        __component: 'blocks.contact-form',
-        eyebrow: 'Inversión',
-        title: 'Solicita información de inversión con tu asesor',
-        subtitle:
-          'Cada plan privado se cotiza según tu nivel, frecuencia y objetivos. Déjanos tus datos y un asesor Universa te contactará con una propuesta personalizada.',
-        variant: 'advisor',
-        successMessage:
-          'Gracias. Un asesor Universa te contactará pronto con la información de inversión.',
-        subjectOptions: [
-          { value: 'programa-continuo-privado', label: 'Programa Continuo Privado' },
-          { value: 'horarios-flexibles', label: 'Horarios flexibles' },
-          { value: 'certificaciones', label: 'Certificaciones internacionales' },
-        ],
       },
       {
         __component: 'blocks.cta-banner',
-        title: 'Tu inglés, a tu ritmo, con un profesor solo para ti',
-        subtitle: 'Solicita tu cotización personalizada hoy.',
+        title: 'Empieza tu Programa Continuo Privado.',
+        subtitle: 'Da el paso hacia un aprendizaje de inglés exclusivo y a tu propia medida.',
         overlayStrength: 'medium',
         primaryCta: {
-          label: 'WhatsApp +51 945 311 934',
-          url: 'https://wa.me/51945311934',
+          label: 'Contactar por WhatsApp',
+          url: 'https://wa.me/51945311934?text=Hola,%20quiero%20más%20información%20sobre%20el%20Programa%20Continuo%20Privado',
           style: 'primary',
-        },
-        secondaryCta: {
-          label: 'Escríbenos',
-          url: 'mailto:contacto@somosuniversa.com',
-          style: 'secondary',
         },
       },
     ],
     seo: {
       metaTitle: 'Programa Continuo Privado | Universa',
       metaDescription:
-        'Clases 1 a 1 en vivo con horarios flexibles, Course Advance y opción de doble certificación internacional.',
+        'Aprende inglés a tu propio ritmo con sesiones exclusivas 1 a 1, horario adaptable y la atención enfocada de un profesor particular.',
     },
   };
 }
 
-const CONTENT_VERSION = 'program-content-no-promo-v3';
+const CONTENT_VERSION = 'program-content-no-promo-v6';
 const VERSION_STORE_KEY = 'programa_privado_content_version' as const;
 
 /** Crea certificaciones y la página /programa-continuo-privado. */
