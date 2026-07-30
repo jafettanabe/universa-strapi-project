@@ -14,6 +14,9 @@ import { sanitizePromoContentFromCms } from './bootstrap/sanitize-promo-content'
 import { bootstrapScheduledClasses } from './bootstrap/scheduled-classes-seed';
 import { bootstrapTalleres } from './bootstrap/talleres-seed';
 import { upsertServiciosPage } from './bootstrap/servicios-page';
+import { upsertVirtualCoffeePage } from './bootstrap/virtual-coffee-page';
+import { upsertProfessionalMasteryLabPage } from './bootstrap/professional-mastery-lab-page';
+
 
 export default {
   /**
@@ -47,6 +50,8 @@ export default {
     await upsertSesionesOnDemandPrivadoPage(strapi);
     await upsertProgramasPage(strapi);
     await upsertServiciosPage(strapi);
+    await upsertVirtualCoffeePage(strapi);
+    await upsertProfessionalMasteryLabPage(strapi);
     await upsertHeaderProgramasNav(strapi);
     await upsertFooterProgramasNav(strapi);
     await upsertLegalPages(strapi);
