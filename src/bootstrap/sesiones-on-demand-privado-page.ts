@@ -4,7 +4,7 @@ import { rt } from './programa-continuo-grupal-page';
 
 const SLUG = 'sesiones-on-demand-privado';
 
-export function getSesionesOnDemandPrivadoPageData() {
+export function getSesionesOnDemandPrivadoPageData(faqIds: string[]) {
   return {
     title: 'Sesiones On Demand (Privado)',
     slug: SLUG,
@@ -34,35 +34,40 @@ export function getSesionesOnDemandPrivadoPageData() {
         },
       },
       {
-        __component: 'blocks.feature-list',
-        eyebrow: 'Áreas de reforzamiento',
-        title: '¿Qué habilidad quieres potenciar?',
-        subtitle:
-          'Sesiones focalizadas según tu objetivo: speaking, listening, gramática, fonética y más.',
-        columns: 4,
-        layout: 'icon_grid',
+        __component: 'blocks.comparison-table',
+        title: 'Banco de Actividades Dinámicas',
+        description: 'Busca y filtra el temario del portafolio On Demand de Universa.',
         items: [
-          { title: 'Speaking', description: 'Fluidez oral y confianza al hablar.', iconName: 'mic' },
-          { title: 'Listening', description: 'Comprensión auditiva en contextos reales.', iconName: 'headphones' },
-          {
-            title: 'Reading & Writing',
-            description: 'Lectura crítica y redacción efectiva.',
-            iconName: 'book-open',
-          },
-          { title: 'Grammar', description: 'Estructuras y precisión gramatical.', iconName: 'list-checks' },
-          { title: 'Phonetics', description: 'Pronunciación y entonación natural.', iconName: 'audio-lines' },
-          { title: 'Vocabulary', description: 'Lexicon especializado y uso contextual.', iconName: 'library' },
-          {
-            title: 'English in context',
-            description: 'Inglés aplicado a situaciones reales.',
-            iconName: 'globe',
-          },
-          {
-            title: 'Critical thinking',
-            description: 'Análisis y argumentación en inglés.',
-            iconName: 'lightbulb',
-          },
-        ],
+          { title: 'Clínica de Pronunciación (Natural Flow)', modality: 'Producción Oral y Fonética', groupSize: 'General', schedule: 'Niveles 1–10 (A1.1 – C1)', slugKey: '2' },
+          { title: 'Roleplay de Situaciones Cotidianas', modality: 'Producción Oral y Fonética', groupSize: 'General', schedule: 'Niveles 1–4 (A1.1 – A2.2)', slugKey: '5' },
+          { title: 'Storytelling Colaborativo', modality: 'Producción Oral y Fonética', groupSize: 'General', schedule: 'Niveles 3–7 (A2.1 – B1.3)', slugKey: '4' },
+          { title: 'Speed Chatting', modality: 'Producción Oral y Fonética', groupSize: 'General', schedule: 'Niveles 5–8 (B1.1 – B2.1)', slugKey: '3' },
+          { title: 'Debate de Actualidad', modality: 'Producción Oral y Fonética', groupSize: 'Profesional', schedule: 'Niveles 8–10 (B2.1 – C1)', slugKey: '1' },
+          { title: 'Elevator Pitch Personal', modality: 'Producción Oral y Fonética', groupSize: 'Profesional', schedule: 'Niveles 8–10 (B2.1 – C1)', slugKey: '6' },
+          { title: 'Deep Dive: Video Journals de NatGeo', modality: 'Comprensión Auditiva y Crítica', groupSize: 'General', schedule: 'Niveles 3–5 (A2.1 – B1.1)', slugKey: '7' },
+          { title: 'Inmersión Documental', modality: 'Comprensión Auditiva y Crítica', groupSize: 'General', schedule: 'Niveles 5–7 (B1.1 – B1.3)', slugKey: '11' },
+          { title: 'Podcast Breakdown', modality: 'Comprensión Auditiva y Crítica', groupSize: 'General', schedule: 'Niveles 6–8 (B1.2 – B2.1)', slugKey: '9' },
+          { title: 'Decodificación de Acentos', modality: 'Comprensión Auditiva y Crítica', groupSize: 'Profesional', schedule: 'Niveles 7–10 (B1.3 – C1)', slugKey: '10' },
+          { title: 'Business Meeting Breakdown', modality: 'Comprensión Auditiva y Crítica', groupSize: 'Profesional', schedule: 'Niveles 7–10 (B1.3 – C1)', slugKey: '12' },
+          { title: 'Análisis de TED Talks', modality: 'Comprensión Auditiva y Crítica', groupSize: 'Profesional', schedule: 'Niveles 8–10 (B2.1 – C1)', slugKey: '8' },
+          { title: 'Messaging & Social Media English', modality: 'Producción Escrita y Corrección', groupSize: 'General', schedule: 'Niveles 1–4 (A1.1 – A2.2)', slugKey: '15' },
+          { title: 'Creative Writing Workshop', modality: 'Producción Escrita y Corrección', groupSize: 'General', schedule: 'Niveles 4–7 (A2.2 – B1.3)', slugKey: '14' },
+          { title: 'Laboratorio de Corrección de Errores', modality: 'Producción Escrita y Corrección', groupSize: 'Profesional', schedule: 'Niveles 6–10 (B1.2 – C1)', slugKey: '13' },
+          { title: 'Writing Clinic: Coherencia y Cohesión', modality: 'Producción Escrita y Corrección', groupSize: 'Profesional', schedule: 'Niveles 6–8 (B1.2 – B2.1)', slugKey: '17' },
+          { title: 'Estructura de Ensayos Persuasivos', modality: 'Producción Escrita y Corrección', groupSize: 'Profesional', schedule: 'Niveles 8–10 (B2.1 – C1)', slugKey: '16' },
+          { title: 'Skimming & Scanning Mastery', modality: 'Comprensión Lectora y Vocabulario', groupSize: 'Profesional', schedule: 'Niveles 5–8 (B1.1 – B2.1)', slugKey: '18' },
+          { title: 'Análisis de Narrativas Reales', modality: 'Comprensión Lectora y Vocabulario', groupSize: 'General', schedule: 'Niveles 5–7 (B1.1 – B1.3)', slugKey: '20' },
+          { title: 'Exploración de Vocabulario Académico', modality: 'Comprensión Lectora y Vocabulario', groupSize: 'Profesional', schedule: 'Niveles 8–10 (B2.1 – C1)', slugKey: '19' },
+          { title: 'Lectura Crítica de Noticias', modality: 'Comprensión Lectora y Vocabulario', groupSize: 'Profesional', schedule: 'Niveles 9–10 (B2.2 – C1)', slugKey: '21' },
+          { title: 'Grammar in Context (Uso Real)', modality: 'Soporte Lingüístico Estratégico', groupSize: 'General', schedule: 'Niveles 1–10 (A1.1 – C1)', slugKey: '22' },
+          { title: 'Idioms & Phrasal Verbs Clinic', modality: 'Soporte Lingüístico Estratégico', groupSize: 'General', schedule: 'Niveles 5–10 (B1.1 – C1)', slugKey: '23' },
+          { title: 'Games Night', modality: 'Sesiones Recreativas y de Inmersión Social', groupSize: 'Social / Recreativo', schedule: 'Niveles 1–10 (A1.1 – C1)', slugKey: '26' },
+          { title: 'Music Time', modality: 'Sesiones Recreativas y de Inmersión Social', groupSize: 'Social / Recreativo', schedule: 'Niveles 3–10 (A2.1 – C1)', slugKey: '24' },
+          { title: 'Movie Time', modality: 'Sesiones Recreativas y de Inmersión Social', groupSize: 'Social / Recreativo', schedule: 'Niveles 3–10 (A2.1 – C1)', slugKey: '25' },
+          { title: 'Trivia Night: Pop Culture & Beyond', modality: 'Sesiones Recreativas y de Inmersión Social', groupSize: 'Social / Recreativo', schedule: 'Niveles 3–10 (A2.1 – C1)', slugKey: '27' },
+          { title: 'Around the World: Cultural Exchange', modality: 'Sesiones Recreativas y de Inmersión Social', groupSize: 'Social / Recreativo', schedule: 'Niveles 4–10 (A2.2 – C1)', slugKey: '28' },
+          { title: 'Comedy Club: Stand-Up & Memes', modality: 'Sesiones Recreativas y de Inmersión Social', groupSize: 'Social / Recreativo', schedule: 'Niveles 6–10 (B1.2 – C1)', slugKey: '29' }
+        ]
       },
       {
         __component: 'blocks.feature-list',
@@ -250,6 +255,13 @@ export function getSesionesOnDemandPrivadoPageData() {
           style: 'secondary',
         },
       },
+      {
+        __component: 'blocks.faq',
+        eyebrow: 'Preguntas Frecuentes',
+        title: 'Preguntas Frecuentes',
+        subtitle: 'Resuelve tus dudas sobre las Sesiones On Demand.',
+        faqItems: faqIds,
+      },
     ],
     seo: {
       metaTitle: 'Sesiones On Demand (Privado) | Universa',
@@ -259,7 +271,45 @@ export function getSesionesOnDemandPrivadoPageData() {
   };
 }
 
-const CONTENT_VERSION = 'program-content-no-promo-v4';
+async function ensureSesionesOnDemandFaqs(strapi: Core.Strapi): Promise<string[]> {
+  const doc = strapi.documents.bind(strapi);
+
+  const questions = [
+    {
+      question: '¿Cómo programo mis sesiones?',
+      answer: 'Una vez adquirido el paquete de horas, tu asesor de Universa se pondrá en contacto contigo para coordinar el horario de tus sesiones de acuerdo a tu disponibilidad.',
+      category: 'general',
+    },
+    {
+      question: '¿Puedo cancelar o reprogramar una sesión?',
+      answer: 'Sí, puedes reprogramar tus sesiones con un mínimo de 24 horas de anticipación directamente con tu profesor asignado.',
+      category: 'general',
+    }
+  ];
+
+  const ids: string[] = [];
+
+  for (const q of questions) {
+    const existing = await doc('api::faq-item.faq-item').findMany({
+      filters: { question: { $eq: q.question } },
+      limit: 1,
+    });
+
+    if (existing.length > 0) {
+      ids.push(existing[0].documentId);
+    } else {
+      const created = await doc('api::faq-item.faq-item').create({
+        data: q,
+        status: 'published',
+      });
+      ids.push(created.documentId);
+    }
+  }
+
+  return ids;
+}
+
+const CONTENT_VERSION = 'program-content-no-promo-v6';
 const VERSION_STORE_KEY = 'sesiones_on_demand_privado_content_version' as const;
 
 export async function upsertSesionesOnDemandPrivadoPage(strapi: Core.Strapi) {
@@ -274,7 +324,8 @@ export async function upsertSesionesOnDemandPrivadoPage(strapi: Core.Strapi) {
   }
 
   const doc = strapi.documents.bind(strapi);
-  const pageData = getSesionesOnDemandPrivadoPageData();
+  const faqIds = await ensureSesionesOnDemandFaqs(strapi);
+  const pageData = getSesionesOnDemandPrivadoPageData(faqIds);
 
   const existing = await doc('api::page.page').findMany({
     filters: { slug: { $eq: SLUG } },
@@ -283,14 +334,10 @@ export async function upsertSesionesOnDemandPrivadoPage(strapi: Core.Strapi) {
 
   if (existing.length > 0) {
     const { documentId } = existing[0];
-    await doc('api::page.page').update({
+    await doc('api::page.page').delete({
       documentId,
-      data: pageData,
-      status: 'published',
     });
-    strapi.log.info(`[sesiones-on-demand-privado] Page updated (${documentId}).`);
-    await store.set({ key: VERSION_STORE_KEY, value: CONTENT_VERSION });
-    return documentId;
+    strapi.log.info(`[sesiones-on-demand-privado] Existing page deleted (${documentId}).`);
   }
 
   const created = await doc('api::page.page').create({
