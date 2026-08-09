@@ -101,41 +101,98 @@ export function getSesionesOnDemandPrivadoPageData() {
           'Precios fijos por paquete de horas. Ideal para reforzar antes de una entrevista, examen o presentación.',
         layout: 'hourly',
         plans: [
+          // PRIVADOS
           {
             planType: 'hourly_package',
-            title: '01 hora suelta',
-            description: 'Una sesión privada para un tema puntual.',
-            hoursCount: 1,
-            priceAmount: 80,
+            title: 'Privado · 1 mes (8h)',
+            description: 'Horario flexible 1:1, ideal para reforzar temas puntuales.',
+            hoursCount: 8,
+            priceAmount: 576,
             currency: 'PEN',
+            badgeText: 'S/. 72 / hora',
           },
           {
             planType: 'hourly_package',
-            title: 'Paquete 4 horas',
-            description: 'Cuatro sesiones para profundizar en un área.',
-            hoursCount: 4,
-            priceAmount: 280,
-            currency: 'PEN',
-            badgeText: 'S/. 70 / hora',
-          },
-          {
-            planType: 'hourly_package',
-            title: 'Paquete 6 horas',
-            description: 'Seis sesiones con ahorro progresivo.',
-            hoursCount: 6,
-            priceAmount: 360,
-            currency: 'PEN',
-            badgeText: 'S/. 60 / hora',
-          },
-          {
-            planType: 'hourly_package',
-            title: 'Paquete 12 horas',
-            description: 'El mejor valor por hora para un plan de refuerzo sostenido.',
+            title: 'Privado · 1 mes (12h)',
+            description: 'Sesiones 1:1 para mayor ritmo y práctica continua.',
             hoursCount: 12,
-            priceAmount: 540,
+            priceAmount: 768,
             currency: 'PEN',
+            badgeText: 'S/. 64 / hora',
+          },
+          {
+            planType: 'hourly_package',
+            title: 'Privado · 2 meses (16h)',
+            description: 'Refuerzo intermedio con ahorro por hora.',
+            hoursCount: 16,
+            priceAmount: 896,
+            currency: 'PEN',
+            badgeText: 'S/. 56 / hora',
+          },
+          {
+            planType: 'hourly_package',
+            title: 'Privado · 2 meses (24h)',
+            description: 'Preparación intensiva para metas específicas.',
+            hoursCount: 24,
+            priceAmount: 1152,
+            currency: 'PEN',
+            badgeText: 'S/. 48 / hora',
+          },
+          {
+            planType: 'hourly_package',
+            title: 'Privado · 3 meses (36h)',
+            description: 'El mejor valor por hora para fluidez sostenida.',
+            hoursCount: 36,
+            priceAmount: 1584,
+            currency: 'PEN',
+            badgeText: 'S/. 44 / hora',
             isHighlighted: true,
-            badgeText: 'Mejor valor · S/. 45 / hora',
+          },
+          // GRUPALES
+          {
+            planType: 'hourly_package',
+            title: 'Grupal · 1 mes (8h)',
+            description: 'Sesiones en grupo para inmersión y conversación.',
+            hoursCount: 8,
+            priceAmount: 416,
+            currency: 'PEN',
+            badgeText: 'S/. 52 / hora',
+          },
+          {
+            planType: 'hourly_package',
+            title: 'Grupal · 1 mes (12h)',
+            description: 'Conversación grupal intensiva.',
+            hoursCount: 12,
+            priceAmount: 528,
+            currency: 'PEN',
+            badgeText: 'S/. 44 / hora',
+          },
+          {
+            planType: 'hourly_package',
+            title: 'Grupal · 2 meses (16h)',
+            description: 'Socio-cultural y debates en grupo.',
+            hoursCount: 16,
+            priceAmount: 576,
+            currency: 'PEN',
+            badgeText: 'S/. 36 / hora',
+          },
+          {
+            planType: 'hourly_package',
+            title: 'Grupal · 2 meses (24h)',
+            description: 'Mayor exposición y participación activa.',
+            hoursCount: 24,
+            priceAmount: 672,
+            currency: 'PEN',
+            badgeText: 'S/. 28 / hora',
+          },
+          {
+            planType: 'hourly_package',
+            title: 'Grupal · 3 meses (36h)',
+            description: 'Sostenimiento de inmersión social a largo plazo.',
+            hoursCount: 36,
+            priceAmount: 864,
+            currency: 'PEN',
+            badgeText: 'S/. 24 / hora',
           },
         ],
         customQuoteText:
@@ -202,7 +259,7 @@ export function getSesionesOnDemandPrivadoPageData() {
   };
 }
 
-const CONTENT_VERSION = 'program-content-no-promo-v3';
+const CONTENT_VERSION = 'program-content-no-promo-v4';
 const VERSION_STORE_KEY = 'sesiones_on_demand_privado_content_version' as const;
 
 export async function upsertSesionesOnDemandPrivadoPage(strapi: Core.Strapi) {
