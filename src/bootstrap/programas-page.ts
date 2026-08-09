@@ -29,7 +29,7 @@ export const PROGRAM_OFFERING_CARDS = [
     description:
       'Refuerzo privado por horas en Speaking, Listening, Grammar y más. Paquetes desde S/. 80.',
     ctaLabel: 'Ver programa',
-    ctaUrl: '/sesiones-on-demand-privado',
+    ctaUrl: '/sesiones-on-demand',
   },
 ] as const;
 
@@ -77,7 +77,7 @@ async function resolveAudienceProgramIds(strapi: Core.Strapi): Promise<string[]>
   return ids;
 }
 
-const CONTENT_VERSION = 'programas-four-programs-v3';
+const CONTENT_VERSION = 'programas-four-programs-v4';
 const VERSION_STORE_KEY = 'programas_page_content_version' as const;
 
 export async function upsertProgramasPage(strapi: Core.Strapi) {

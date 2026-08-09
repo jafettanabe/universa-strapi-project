@@ -2,11 +2,11 @@ import type { Core } from '@strapi/strapi';
 
 import { rt } from './programa-continuo-grupal-page';
 
-const SLUG = 'sesiones-on-demand-privado';
+const SLUG = 'sesiones-on-demand';
 
-export function getSesionesOnDemandPrivadoPageData(faqIds: string[]) {
+export function getSesionesOnDemandPageData(faqIds: string[]) {
   return {
-    title: 'Sesiones On Demand (Privado)',
+    title: 'Sesiones On Demand',
     slug: SLUG,
     pageType: 'landing' as const,
     excerpt:
@@ -17,7 +17,7 @@ export function getSesionesOnDemandPrivadoPageData(faqIds: string[]) {
       {
         __component: 'blocks.hero',
         eyebrow: 'Universa English Program · ON DEMAND · 1 TO 1',
-        title: 'Sesiones On Demand (Privado)',
+        title: 'Sesiones On Demand',
         subtitle:
           'Clases privadas 1 a 1 adaptadas 100% a tus necesidades. Revisa temas puntuales y vocabulario en contextos reales con un profesor certificado — tú eliges qué reforzar y cuándo.',
         variant: 'gradient_organic',
@@ -264,7 +264,7 @@ export function getSesionesOnDemandPrivadoPageData(faqIds: string[]) {
       },
     ],
     seo: {
-      metaTitle: 'Sesiones On Demand (Privado) | Universa',
+      metaTitle: 'Sesiones On Demand | Universa',
       metaDescription:
         'Clases privadas 1:1 por horas: Speaking, Listening, Grammar y más. Paquetes desde S/. 80. Cotización personalizada con tu asesor.',
     },
@@ -309,24 +309,40 @@ async function ensureSesionesOnDemandFaqs(strapi: Core.Strapi): Promise<string[]
   return ids;
 }
 
-const CONTENT_VERSION = 'program-content-no-promo-v6';
-const VERSION_STORE_KEY = 'sesiones_on_demand_privado_content_version' as const;
+const CONTENT_VERSION = 'program-content-no-promo-v8';
+const VERSION_STORE_KEY = 'sesiones_on_demand_content_version' as const;
 
-export async function upsertSesionesOnDemandPrivadoPage(strapi: Core.Strapi) {
+export async function upsertSesionesOnDemandPage(strapi: Core.Strapi) {
   const store = strapi.store({ type: 'plugin', name: 'universa' });
   const appliedVersion = await store.get({ key: VERSION_STORE_KEY });
 
   if (appliedVersion === CONTENT_VERSION) {
     strapi.log.info(
-      `[sesiones-on-demand-privado] Content already at version ${CONTENT_VERSION}; skipping upsert.`,
+      `[sesiones-on-demand] Content already at version ${CONTENT_VERSION}; skipping upsert.`,
     );
     return;
   }
 
   const doc = strapi.documents.bind(strapi);
   const faqIds = await ensureSesionesOnDemandFaqs(strapi);
-  const pageData = getSesionesOnDemandPrivadoPageData(faqIds);
+  const pageData = getSesionesOnDemandPageData(faqIds);
 
+  // Clean up OLD page with 'sesiones-on-demand-privado' slug if it exists
+  const oldSlug = 'sesiones-on-demand-privado';
+  const oldPage = await doc('api::page.page').findMany({
+    filters: { slug: { $eq: oldSlug } },
+    limit: 1,
+  });
+
+  if (oldPage.length > 0) {
+    const { documentId } = oldPage[0];
+    await doc('api::page.page').delete({
+      documentId,
+    });
+    strapi.log.info(`[sesiones-on-demand] Old page deleted (${documentId}) for slug: ${oldSlug}`);
+  }
+
+  // Clean up current page if already exists
   const existing = await doc('api::page.page').findMany({
     filters: { slug: { $eq: SLUG } },
     limit: 1,
@@ -337,14 +353,14 @@ export async function upsertSesionesOnDemandPrivadoPage(strapi: Core.Strapi) {
     await doc('api::page.page').delete({
       documentId,
     });
-    strapi.log.info(`[sesiones-on-demand-privado] Existing page deleted (${documentId}).`);
+    strapi.log.info(`[sesiones-on-demand] Existing page deleted (${documentId}).`);
   }
 
   const created = await doc('api::page.page').create({
     data: pageData,
     status: 'published',
   });
-  strapi.log.info(`[sesiones-on-demand-privado] Page created (${created.documentId}).`);
+  strapi.log.info(`[sesiones-on-demand] Page created (${created.documentId}).`);
   await store.set({ key: VERSION_STORE_KEY, value: CONTENT_VERSION });
   return created.documentId;
 }

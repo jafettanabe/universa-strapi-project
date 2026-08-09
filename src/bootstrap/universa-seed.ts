@@ -15,6 +15,31 @@ const SEED_STORE_NAME = 'universa' as const;
 const SEED_KEY = 'bootstrap_seed_v1' as const;
 
 export async function runUniversaSeed(strapi: Core.Strapi) {
+  // Check and migrate site-setting WhatsApp number from Colombia to Peru
+  try {
+    const doc = strapi.documents.bind(strapi);
+    const existingSettings = await doc('api::site-settings.site-setting').findMany({
+      limit: 1,
+    });
+    if (existingSettings.length > 0) {
+      const setting = existingSettings[0];
+      await doc('api::site-settings.site-setting').update({
+        documentId: setting.documentId,
+        data: {
+          whatsappNumber: '+51945311934',
+          contactPhone: '+51 945 311 934',
+          address: 'Perú / Online'
+        }
+      });
+      await doc('api::site-settings.site-setting').publish({
+        documentId: setting.documentId
+      });
+      strapi.log.info(`[universa-seed] Synchronized and published site-setting WhatsApp number to +51945311934`);
+    }
+  } catch (err) {
+    strapi.log.warn(`[universa-seed] Failed to run site-setting migration: ${String(err)}`);
+  }
+
   const store = strapi.store({ type: SEED_STORE_TYPE, name: SEED_STORE_NAME });
   const already = await store.get({ key: SEED_KEY });
   if (already) {
@@ -365,9 +390,9 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
       siteDescription:
         'Somos un ecosistema de aprendizaje de inglés: programas para adultos, juniors y empresas, con metodología comunicativa, acompañamiento humano y tecnología a tu servicio.',
       contactEmail: 'hola@somosuniversa.com',
-      contactPhone: '+57 (1) 000 0000',
-      whatsappNumber: '+573000000000',
-      address: 'Colombia / Online',
+      contactPhone: '+51 945 311 934',
+      whatsappNumber: '+51945311934',
+      address: 'Perú / Online',
       socialLinks: [
         { platform: 'instagram', label: 'Instagram', url: 'https://instagram.com/' },
         { platform: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/' },

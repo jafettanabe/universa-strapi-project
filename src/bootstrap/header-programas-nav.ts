@@ -4,11 +4,11 @@ export const PROGRAMAS_NAV_CHILDREN = [
   { label: 'Programa Continuo Grupal', url: '/programa-continuo-grupal', openInNewTab: false },
   { label: 'Programa Continuo Privado', url: '/programa-continuo-privado', openInNewTab: false },
   { label: 'Programa Flex Privado', url: '/programa-flex-privado', openInNewTab: false },
-  { label: 'Sesiones On Demand', url: '/sesiones-on-demand-privado', openInNewTab: false },
+  { label: 'Sesiones On Demand', url: '/sesiones-on-demand', openInNewTab: false },
 ] as const;
 
 const VERSION_STORE_KEY = 'header_programas_nav_version' as const;
-const CONTENT_VERSION = 'four-programs-v1';
+const CONTENT_VERSION = 'four-programs-v2';
 
 type NavItem = {
   label?: string | null;

@@ -5,7 +5,7 @@ import { seedBlogPostsFromFrontend } from './bootstrap/blog-posts-seed';
 import { upsertProgramaContinuoGrupalPage } from './bootstrap/programa-continuo-grupal-page';
 import { upsertProgramaContinuoPrivadoPage } from './bootstrap/programa-continuo-privado-page';
 import { upsertProgramaFlexPrivadoPage } from './bootstrap/programa-flex-privado-page';
-import { upsertSesionesOnDemandPrivadoPage } from './bootstrap/sesiones-on-demand-privado-page';
+import { upsertSesionesOnDemandPage } from './bootstrap/sesiones-on-demand-page';
 import { upsertProgramasPage } from './bootstrap/programas-page';
 import { upsertHeaderProgramasNav } from './bootstrap/header-programas-nav';
 import { upsertFooterProgramasNav } from './bootstrap/footer-programas-nav';
@@ -47,7 +47,7 @@ export default {
       );
     }
     await upsertProgramaFlexPrivadoPage(strapi);
-    await upsertSesionesOnDemandPrivadoPage(strapi);
+    await upsertSesionesOnDemandPage(strapi);
     await upsertProgramasPage(strapi);
     await upsertServiciosPage(strapi);
     await upsertVirtualCoffeePage(strapi);
