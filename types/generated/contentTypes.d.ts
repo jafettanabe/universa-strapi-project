@@ -966,6 +966,7 @@ export interface ApiPlacementSubmissionPlacementSubmission
   attributes: {
     age: Schema.Attribute.Integer & Schema.Attribute.Required;
     answers: Schema.Attribute.JSON & Schema.Attribute.Required;
+    ciclo: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -981,6 +982,7 @@ export interface ApiPlacementSubmissionPlacementSubmission
     phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     score: Schema.Attribute.Integer & Schema.Attribute.Required;
+    testDate: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

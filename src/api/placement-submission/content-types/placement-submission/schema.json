@@ -36,6 +36,12 @@
     "answers": {
       "type": "json",
       "required": true
+    },
+    "testDate": {
+      "type": "string"
+    },
+    "ciclo": {
+      "type": "string"
     }
   }
 }
