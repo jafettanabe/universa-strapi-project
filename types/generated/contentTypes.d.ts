@@ -1161,6 +1161,8 @@ export interface ApiTallerTaller extends Struct.CollectionTypeSchema {
     nombre: Schema.Attribute.String & Schema.Attribute.Required;
     precio: Schema.Attribute.Decimal & Schema.Attribute.Required;
     precioConDescuento: Schema.Attribute.Decimal;
+    precioGrupal: Schema.Attribute.Decimal;
+    precioGrupalConDescuento: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     resumen: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'nombre'> & Schema.Attribute.Required;

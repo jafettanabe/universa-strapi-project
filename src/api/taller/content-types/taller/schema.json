@@ -38,6 +38,12 @@
     "precioConDescuento": {
       "type": "decimal"
     },
+    "precioGrupal": {
+      "type": "decimal"
+    },
+    "precioGrupalConDescuento": {
+      "type": "decimal"
+    },
     "imagen": {
       "type": "media",
       "multiple": false,
