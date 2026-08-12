@@ -53,9 +53,7 @@ export async function upsertMetodologiaPage(strapi: Core.Strapi) {
       provider_metadata: null,
       folder_path: '/',
       created_at: new Date(),
-      updated_at: new Date(),
-      published_at: new Date(),
-      locale: 'es'
+      updated_at: new Date()
     }).returning('id');
 
     if (insertResult && insertResult[0]) {
@@ -83,7 +81,7 @@ export async function upsertMetodologiaPage(strapi: Core.Strapi) {
       {
         __component: 'blocks.text-image' as const,
         eyebrow: 'Enfoque natural',
-        titleTextImage: 'Por qué no enseñamos gramática primero',
+        title: 'Por qué no enseñamos gramática primero',
         body: rt(
           'El método tradicional suele priorizar la memorización de estructuras antes que la comunicación efectiva. Esto genera estudiantes que pueden conjugar verbos a la perfección en un examen escrito, pero que dudan al pedir un café o participar en una reunión.',
           'Nuestro enfoque invierte ese orden: primero comunicas, después entiendes por qué funciona así. La gramática se internaliza de forma natural, como resultado del uso, no como un requisito previo.'
@@ -93,8 +91,8 @@ export async function upsertMetodologiaPage(strapi: Core.Strapi) {
       {
         __component: 'blocks.feature-list' as const,
         eyebrow: 'Garantía de calidad',
-        titleFeatureList: 'El respaldo de National Geographic Learning',
-        subtitleFeatureList: 'Todo nuestro material didáctico está sustentado por National Geographic Learning, a través de la plataforma Spark. Esto te expone a contextos culturales auténticos y ritmos de habla reales.',
+        title: 'El respaldo de National Geographic Learning',
+        subtitle: 'Todo nuestro material didáctico está sustentado por National Geographic Learning, a través de la plataforma Spark. Esto te expone a contextos culturales auténticos y ritmos de habla reales.',
         columns: 3,
         layout: 'standard' as const,
         items: [
@@ -129,7 +127,7 @@ export async function upsertMetodologiaPage(strapi: Core.Strapi) {
       {
         __component: 'blocks.text-image' as const,
         eyebrow: 'Flexibilidad y consistencia',
-        titleTextImage: '¿Esta metodología es igual en todos los programas?',
+        title: '¿Esta metodología es igual en todos los programas?',
         body: rt(
           'Sí: la metodología natural y el enfoque comunicativo son la base de todos nuestros programas.',
           'Lo que cambia entre programas no es el método, sino el formato: horario fijo o flexible, grupal o individual, estructurado por niveles o diseñado por objetivos puntuales y enfoques académicos.'
@@ -144,8 +142,8 @@ export async function upsertMetodologiaPage(strapi: Core.Strapi) {
       {
         __component: 'blocks.cta-banner' as const,
         eyebrow: 'Únete a Universa',
-        titleCtaBanner: 'Empieza a hablar inglés con confianza hoy mismo',
-        subtitleCtaBanner: 'Inscríbete en nuestros programas y vive el idioma desde el primer día.',
+        title: 'Empieza a hablar inglés con confianza hoy mismo',
+        subtitle: 'Inscríbete en nuestros programas y vive el idioma desde el primer día.',
         overlayStrength: 'medium' as const,
         primaryCta: {
           label: 'Escríbenos por WhatsApp',
