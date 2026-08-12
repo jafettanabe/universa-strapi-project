@@ -27,6 +27,9 @@
         "diagnostic"
       ],
       "default": "default"
+    },
+    "whatsappNumber": {
+      "type": "string"
     }
   }
 }

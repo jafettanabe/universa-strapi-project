@@ -78,6 +78,7 @@ export interface BlocksContactForm extends Struct.ComponentSchema {
       ['default', 'advisor', 'diagnostic']
     > &
       Schema.Attribute.DefaultTo<'default'>;
+    whatsappNumber: Schema.Attribute.String;
   };
 }
 
