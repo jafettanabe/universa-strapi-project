@@ -34,6 +34,13 @@
     "excerpt": {
       "type": "text"
     },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "seo": {
       "type": "component",
       "component": "shared.seo",

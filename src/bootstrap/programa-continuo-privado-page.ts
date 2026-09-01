@@ -69,7 +69,9 @@ async function ensurePrivadoCertifications(strapi: Core.Strapi) {
   }
 
   return documentIds;
-}export function getProgramaContinuoPrivadoPageData(certificationIds: string[]) {
+}
+
+export function getProgramaContinuoPrivadoPageData(certificationIds: string[], imageId: number | null) {
   return {
     title: 'Programa Continuo Privado',
     slug: SLUG,
@@ -105,6 +107,7 @@ async function ensurePrivadoCertifications(strapi: Core.Strapi) {
           'El Programa Continuo Privado es la versión individual de nuestro programa estructurado por niveles que guarda correlación con el Marco Común Europeo de Referencia para las lenguas (MCER): mismo estándar académico de 120 horas por nivel, mismo material de National Geographic Learning, pero en sesiones exclusivas 1 a 1 con horario preestablecido y/o programable.',
         ),
         imagePosition: 'right',
+        image: imageId,
       },
       {
         __component: 'blocks.feature-list',
@@ -172,7 +175,7 @@ async function ensurePrivadoCertifications(strapi: Core.Strapi) {
   };
 }
 
-const CONTENT_VERSION = 'program-content-no-promo-v6';
+const CONTENT_VERSION = 'program-content-prod-v1';
 const VERSION_STORE_KEY = 'programa_privado_content_version' as const;
 
 /** Crea certificaciones y la página /programa-continuo-privado. */
@@ -187,9 +190,53 @@ export async function upsertProgramaContinuoPrivadoPage(strapi: Core.Strapi) {
     return;
   }
 
+  // 1. Find or create the image in files table
+  let imageId: number | null = null;
+  const existingFiles = await strapi.db.connection('files')
+    .where('hash', 'continuo_privado_hero_7d76a5e61e')
+    .select('id')
+    .first();
+
+  if (existingFiles) {
+    imageId = existingFiles.id;
+    strapi.log.info(`[programa-continuo-privado] Found existing image with ID: ${imageId}`);
+  } else {
+    const docId = 'media-continuo-privado-' + Date.now();
+    const hash = 'continuo_privado_hero_7d76a5e61e';
+    const filename = 'continuo_privado_hero_7d76a5e61e.webp';
+    const alt = '¿Qué es el Programa Continuo Privado?';
+
+    const insertResult = await strapi.db.connection('files').insert({
+      document_id: docId,
+      name: filename,
+      alternative_text: alt,
+      caption: null,
+      focal_point: null,
+      width: 1024,
+      height: 1024,
+      formats: null,
+      hash: hash,
+      ext: '.webp',
+      mime: 'image/webp',
+      size: 51.0,
+      url: `/uploads/${filename}`,
+      preview_url: null,
+      provider: 'local',
+      provider_metadata: null,
+      folder_path: '/',
+      created_at: new Date(),
+      updated_at: new Date()
+    }).returning('id');
+
+    if (insertResult && insertResult[0]) {
+      imageId = typeof insertResult[0] === 'object' ? insertResult[0].id : insertResult[0];
+      strapi.log.info(`[programa-continuo-privado] Created image entry with ID: ${imageId}`);
+    }
+  }
+
   const doc = strapi.documents.bind(strapi);
   const certificationIds = await ensurePrivadoCertifications(strapi);
-  const pageData = getProgramaContinuoPrivadoPageData(certificationIds);
+  const pageData = getProgramaContinuoPrivadoPageData(certificationIds, imageId);
 
   const existing = await doc('api::page.page').findMany({
     filters: { slug: { $eq: SLUG } },

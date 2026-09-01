@@ -5,6 +5,7 @@ import { seedBlogPostsFromFrontend } from './bootstrap/blog-posts-seed';
 import { upsertProgramaContinuoGrupalPage } from './bootstrap/programa-continuo-grupal-page';
 import { upsertProgramaContinuoPrivadoPage } from './bootstrap/programa-continuo-privado-page';
 import { upsertProgramaFlexPrivadoPage } from './bootstrap/programa-flex-privado-page';
+import { upsertProgramaDynamicPage } from './bootstrap/programa-dynamic-page';
 import { upsertSesionesOnDemandPage } from './bootstrap/sesiones-on-demand-page';
 import { upsertProgramasPage } from './bootstrap/programas-page';
 import { upsertHeaderProgramasNav } from './bootstrap/header-programas-nav';
@@ -48,6 +49,7 @@ export default {
       );
     }
     await upsertProgramaFlexPrivadoPage(strapi);
+    await upsertProgramaDynamicPage(strapi);
     await upsertSesionesOnDemandPage(strapi);
     await upsertProgramasPage(strapi);
     await upsertServiciosPage(strapi);

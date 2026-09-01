@@ -1,9 +1,9 @@
 import type { Core } from '@strapi/strapi';
 
 import {
-  getProgramaContinuoGrupalPageData,
   rt,
   upsertProgramaContinuoGrupalPage,
+  getProgramaContinuoGrupalPageData,
 } from './programa-continuo-grupal-page';
 import { PROGRAMAS_NAV_CHILDREN } from './header-programas-nav';
 import { buildProgramasPageSections } from './programas-page';
@@ -797,27 +797,63 @@ export async function runUniversaSeed(strapi: Core.Strapi) {
       navigationLabel: 'Nosotros',
       hero: {
         eyebrow: 'Quiénes somos',
-        title: 'Somos Universa',
-        subtitle: 'Aprendizaje de inglés con enfoque humano, comunicativo y orientado a resultados reales.',
-        alignment: 'left',
+        title: 'Un programa de inglés diseñado alrededor de ti, no al revés',
+        subtitle: '',
+        alignment: 'center' as const,
       },
       sections: [
         {
-          __component: 'blocks.rich-text',
-          title: 'Nuestra misión',
-          content: rt(
-            'Acompañar procesos de transformación personal y profesional a través del inglés.',
-            'Creemos en experiencias exigentes, cercanas y sostenibles.'
+          __component: 'blocks.text-image' as const,
+          eyebrow: 'Nuestra razón de ser',
+          title: 'Nuestra razón de ser',
+          body: rt(
+            'La mayoría de programas de inglés fuerzan a sus estudiantes a encajar en un horario, un ritmo y un método únicos. En Universa hicimos lo contrario: construimos siete caminos distintos para aprender inglés, porque entendemos que un ejecutivo con agenda apretada, un adolescente que recién empieza y un profesional que necesita un resultado puntual en tres meses no pueden aprender de la misma forma.'
           ),
+          imagePosition: 'right' as const,
         },
         {
-          __component: 'blocks.stats',
-          title: 'Universa en cifras',
+          __component: 'blocks.feature-list' as const,
+          eyebrow: 'Nuestro respaldo académico',
+          title: 'Nuestro respaldo académico',
+          subtitle: 'Cada programa de Universa está construido sobre dos pilares de respaldo internacional:',
+          columns: 2,
+          layout: 'standard' as const,
           items: [
-            { value: '+10', label: 'Años en educación', description: 'Experiencia acumulada en formación.' },
-            { value: '+1000', label: 'Estudiantes acompañados', description: 'En distintos perfiles y contextos.' },
-            { value: '95%', label: 'Satisfacción', description: 'Promedio de experiencia reportada.' },
+            {
+              title: 'National Geographic Learning',
+              description: 'nuestro material didáctico está basado en historias reales, documentales y contenido audiovisual auténtico, no en diálogos artificiales de libro de texto.',
+              iconName: 'book',
+            },
+            {
+              title: 'British Council (Aptis)',
+              description: 'al completar tu nivel, puedes certificar tu inglés con Aptis by British Council, reconocido internacionalmente bajo el Marco Común Europeo de Referencia (MCER).',
+              iconName: 'award',
+            },
           ],
+        },
+        {
+          __component: 'blocks.text-image' as const,
+          eyebrow: 'Nuestra comunidad',
+          title: 'Nuestra comunidad',
+          body: rt(
+            'Creemos que las mejores historias de aprendizaje merecen ser contadas. Por eso creamos el Beneficio Comunidad Universa, un programa de embajadores para estudiantes que representan genuinamente el impacto de Universa en sus vidas.'
+          ),
+          cta: {
+            label: 'Conoce el Beneficio Comunidad Universa →',
+            url: '/blog/beneficio-comunidad-universa-embajadores',
+            style: 'primary' as const,
+          },
+          imagePosition: 'right' as const,
+        },
+        {
+          __component: 'blocks.cta-banner' as const,
+          eyebrow: 'Únete',
+          title: '¿Quieres conocer el programa que se adapta a ti?',
+          primaryCta: {
+            label: 'Ver todos los programas →',
+            url: '/programas',
+            style: 'primary' as const,
+          },
         },
       ],
     },

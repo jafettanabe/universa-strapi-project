@@ -11,328 +11,11 @@ export const rt = (...lines: string[]) =>
     })),
   );
 
-export function getProgramaContinuoGrupalPageData() {
-  return {
-    title: 'Programa Continuo Grupal',
-    slug: SLUG,
-    pageType: 'landing' as const,
-    excerpt: 'Clases de inglés en tiempo real con grupos pequeños de 5 a 8 personas.',
-    showInNavigation: true,
-    navigationLabel: 'Programa Continuo Grupal',
-    sections: [
-      {
-        __component: 'blocks.hero',
-        eyebrow: 'Universa English Program · GROUP SESSIONS',
-        title: 'Programa Continuo Grupal',
-        subtitle:
-          'Clases de inglés en tiempo real a través de videoconferencias en vivo. Interactúa con tu profesor y con tus compañeros viviendo el idioma con enfoque comunicativo.',
-        variant: 'gradient_organic',
-        alignment: 'left',
-        audienceTags: [
-          { label: 'Adolescentes', ageRange: '14 - 17 años' },
-          { label: 'Adultos', ageRange: '18 - 49 años' },
-          { label: 'Seniors', ageRange: '50+ años' },
-        ],
-        primaryCta: {
-          label: 'Inscríbete ahora',
-          url: '/contacto',
-          style: 'primary',
-        },
-      },
-      {
-        __component: 'blocks.text-image',
-        eyebrow: 'Descripción',
-        title: '¿Qué desarrollamos con el Programa?',
-        body: rt(
-          'Desarrollo de habilidades lingüísticas fundamentales: expresión oral, expresión escrita, comprensión auditiva y comprensión lectora.',
-          'Competencias que perfeccionan el uso del lenguaje: gramatical, léxica, pragmática, discursiva y fonética.',
-          'Un enfoque formativo y práctico en comunicación integral.',
-        ),
-        imagePosition: 'right',
-      },
-      {
-        __component: 'blocks.feature-list',
-        eyebrow: 'Características',
-        title: 'Todo lo que incluye tu programa',
-        subtitle:
-          'Grupos pequeños de 5 a 8 personas · Todos los niveles desde Functional (A1) hasta Proficient (C1)',
-        columns: 3,
-        layout: 'standard',
-        items: [
-          {
-            title: 'Grupos de 5 a 8 estudiantes',
-            description: 'Atención personalizada en un entorno colaborativo y dinámico.',
-            iconName: 'users',
-          },
-          {
-            title: 'SFA: Study From Anywhere',
-            description: 'Estudia desde cualquier parte del mundo con laptop e internet.',
-            iconName: 'globe',
-          },
-          {
-            title: 'Material National Geographic Learning',
-            description: 'Material online y físico con envíos a nivel nacional (Perú) y online mundial.',
-            iconName: 'book-open',
-          },
-          {
-            title: 'Plataforma Online Practice Spark',
-            description: 'Plataforma interactiva de National Geographic Learning.',
-            iconName: 'laptop',
-          },
-          {
-            title: 'Conversation Clubs Universa',
-            description: 'Simula conversaciones reales en inglés y pierde el miedo a hablar.',
-            iconName: 'message-circle',
-          },
-          {
-            title: 'Currículas acordes con el MCER',
-            description: 'Estructura alineada al Marco Común Europeo de Referencia (A1 a C1/C2).',
-            iconName: 'award',
-          },
-          {
-            title: 'Course Advance',
-            description:
-              'Avance aproximadamente 2x más rápido que métodos tradicionales. Cada nivel ≈ 120 horas.',
-            iconName: 'zap',
-          },
-          {
-            title: 'Amplio rango horario',
-            description: 'Clases desde las 7:00 am hasta las 11:00 pm (GMT-5), hora Perú.',
-            iconName: 'clock',
-          },
-          {
-            title: 'Enfoque comunicativo',
-            description: 'Clases conversacionales y prácticas con estándares internacionales.',
-            iconName: 'mic',
-          },
-        ],
-      },
-      {
-        __component: 'blocks.stats',
-        eyebrow: 'Niveles Universa',
-        title: 'Aprende inglés 2x más rápido',
-        subtitle: 'Nuestro Course Advance permite un avance aproximadamente el doble de veloz.',
-        items: [
-          { value: 'A1', label: 'Functional', description: 'Nivel inicial' },
-          { value: 'A2-B1', label: 'Intermediate', description: 'Progresión media' },
-          { value: 'B2', label: 'Upper Intermediate', description: 'Fluidez avanzada' },
-          { value: 'C1', label: 'Proficient', description: 'Dominio del idioma' },
-        ],
-      },
-      {
-        __component: 'blocks.schedule-tabs',
-        title: 'Estructura de Frecuencias Horarias',
-        subtitle: 'Próximos inicios de clases — elige la intensidad que se adapte a tu ritmo.',
-        footnote:
-          '*Inicio de clases tentativo acorde a disponibilidad de cupos y apertura de grupos. Pregunta a tu asesor por nuevos horarios disponibles.',
-        intensities: [
-          {
-            name: 'Superintensivo',
-            tabKey: 'superintensivo',
-            description: 'Avance acelerado con la mayor carga horaria semanal.',
-            offerings: [
-              {
-                level: 'Básico',
-                cycleLabel: 'Ciclo 02',
-                days: 'Lunes, miércoles y viernes',
-                frequency: 'Interdiario 2',
-                weeklyHours: '9 horas',
-                levelDuration: '3.5 meses',
-                timeSlot: '07:00 pm a 10:00 pm',
-                shift: 'nocturno',
-                startDateLabel: '18 de Mayo',
-              },
-            ],
-          },
-          {
-            name: 'Semi intensivo',
-            tabKey: 'semiintensivo',
-            description: 'Equilibrio entre ritmo y flexibilidad para avanzar de forma constante.',
-            offerings: [
-              {
-                level: 'Básico',
-                cycleLabel: 'Ciclo 02',
-                days: 'Lunes, miércoles y viernes',
-                frequency: 'Interdiario 6',
-                weeklyHours: '4.5 horas',
-                levelDuration: '7 meses',
-                timeSlot: '07:30 pm a 09:00 pm',
-                shift: 'nocturno',
-                startDateLabel: '18 de Mayo',
-              },
-              {
-                level: 'Pre-Intermedio',
-                cycleLabel: 'Ciclo 03',
-                days: 'Lunes, miércoles y viernes',
-                frequency: 'Interdiario 6',
-                weeklyHours: '4.5 horas',
-                levelDuration: '7 meses',
-                timeSlot: '08:00 pm a 09:30 pm',
-                shift: 'nocturno',
-                startDateLabel: '20 de Mayo',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        __component: 'blocks.pricing-section',
-        eyebrow: 'Inversión',
-        title: 'Elige la forma de pago que prefieras',
-        subtitle: 'Beneficio Comunidad Universa — cupos limitados en el programa.',
-        regularPriceAmount: 16000,
-        regularPriceCurrency: 'PEN',
-        financingBaseAmount: 12000,
-        plans: [
-          {
-            planType: 'promo_2x1',
-            title: 'Promoción 2x1',
-            description: 'Aprende con un amigo — dos inscripciones al precio de una.',
-            discountLabel: '2x1',
-            isHighlighted: true,
-            badgeText: 'CUPOS LIMITADOS',
-            benefits: [
-              { title: 'Conversation Club', description: 'Práctica guiada en grupos.' },
-              { title: 'Reviewcamps', description: 'Sesiones de refuerzo intensivo.' },
-              { title: 'Sesiones On Demand', description: 'Clases privadas por horas.' },
-            ],
-          },
-          {
-            planType: 'contado',
-            title: 'Pago al contado',
-            description: '50% de descuento pagando el monto total de una sola vez.',
-            priceAmount: 8000,
-            currency: 'PEN',
-            discountLabel: '50%',
-            isHighlighted: true,
-            badgeText: 'MEJOR PRECIO',
-            benefits: [
-              {
-                title: 'Válido para todas las frecuencias',
-                description: 'Incluye Inmersivo, Superintensivo, Semiintensivo y Regular.',
-              },
-            ],
-          },
-          {
-            planType: 'financiamiento',
-            title: 'Financiamiento',
-            description: '25% de descuento con pago en cuotas según la frecuencia elegida.',
-            priceAmount: 12000,
-            currency: 'PEN',
-            discountLabel: '25%',
-            benefits: [
-              {
-                title: 'Válido para todas las frecuencias',
-                description: 'Excepto Inmersivo Fast.',
-              },
-              { title: 'Mensualidades', description: 'Intensivo, Semiintensivo y Regular.' },
-            ],
-          },
-          {
-            planType: 'regular',
-            title: 'Precio regular',
-            description: 'Inversión estándar por nivel completo.',
-            priceAmount: 16000,
-            currency: 'PEN',
-            benefits: [
-              {
-                title: 'Nivel completo',
-                description: 'Acceso a todas las sesiones y contenidos del nivel.',
-              },
-              {
-                title: 'Grupos reducidos',
-                description: 'Clases en vivo con profesor certificado.',
-              },
-              {
-                title: 'Plataforma digital',
-                description: 'Material y seguimiento incluidos en la matrícula.',
-              },
-            ],
-          },
-        ],
-        financingRules: [
-          {
-            frequencyKey: 'superintensivo',
-            frequencyLabel: 'Superintensivo',
-            maxInstallments: 4,
-            durationMonths: 3.5,
-            notes:
-              'El plazo máximo de cuotas es la duración del nivel (ej. 3.5 meses → hasta 4 cuotas).',
-          },
-          {
-            frequencyKey: 'intensivo',
-            frequencyLabel: 'Intensivo',
-            maxInstallments: 4,
-            durationMonths: 4,
-          },
-          {
-            frequencyKey: 'semiintensivo',
-            frequencyLabel: 'Semi intensivo',
-            maxInstallments: 7,
-            durationMonths: 7,
-          },
-          {
-            frequencyKey: 'regular',
-            frequencyLabel: 'Regular',
-            maxInstallments: 12,
-            durationMonths: 12,
-          },
-        ],
-        paymentMethods: [
-          {
-            title: 'Transferencia bancaria',
-            description: 'Transferencia e interbancaria.',
-            iconName: 'landmark',
-          },
-          {
-            title: 'Billetera digital',
-            description: 'Yape, Plin y similares.',
-            iconName: 'smartphone',
-          },
-          {
-            title: 'Pasarela de pagos',
-            description: 'Tarjetas débito/crédito nacionales e internacionales.',
-            iconName: 'credit-card',
-          },
-        ],
-        primaryCta: {
-          label: 'Consultar con un asesor',
-          url: '/contacto',
-          style: 'primary',
-        },
-      },
-      {
-        __component: 'blocks.cta-banner',
-        title: 'Un nuevo idioma, un universo de oportunidades',
-        subtitle: 'Todos nuestros programas aplican Términos y Condiciones.',
-        overlayStrength: 'medium',
-        primaryCta: {
-          label: 'Escríbenos',
-          url: 'mailto:contacto@somosuniversa.com',
-          style: 'primary',
-        },
-        secondaryCta: {
-          label: 'WhatsApp +51 945 311 934',
-          url: 'https://wa.me/51945311934',
-          style: 'secondary',
-        },
-      },
-    ],
-    seo: {
-      metaTitle: 'Programa Continuo Grupal | Universa',
-      metaDescription:
-        'Clases de inglés en tiempo real con grupos pequeños de 5 a 8 personas.',
-    },
-  };
-}
-
-/** Versión del contenido — incrementar al actualizar copy en código. */
-const CONTENT_VERSION = 'program-content-no-promo-v5';
-const VERSION_STORE_KEY = 'programa_grupal_content_version' as const;
-
-/** Crea o actualiza la página /programa-continuo-grupal. */
 export async function upsertProgramaContinuoGrupalPage(strapi: Core.Strapi) {
   const store = strapi.store({ type: 'plugin', name: 'universa' });
+  const VERSION_STORE_KEY = 'programa_grupal_content_version' as const;
+  const CONTENT_VERSION = 'program-content-prod-v1';
+
   const appliedVersion = await store.get({ key: VERSION_STORE_KEY });
 
   if (appliedVersion === CONTENT_VERSION) {
@@ -342,8 +25,135 @@ export async function upsertProgramaContinuoGrupalPage(strapi: Core.Strapi) {
     return;
   }
 
+  // 1. Find or create the image in files table
+  let imageId: number | null = null;
+  const existingFiles = await strapi.db.connection('files')
+    .where('hash', 'Continuo_Grupal_b38f5c6c07')
+    .select('id')
+    .first();
+
+  if (existingFiles) {
+    imageId = existingFiles.id;
+    strapi.log.info(`[programa-continuo-grupal] Found existing image with ID: ${imageId}`);
+  } else {
+    const docId = 'media-continuo-grupal-' + Date.now();
+    const hash = 'Continuo_Grupal_b38f5c6c07';
+    const filename = 'Continuo_Grupal_b38f5c6c07.png';
+    const alt = 'Clases de inglés en grupo - Programa Continuo Grupal Universa';
+
+    const insertResult = await strapi.db.connection('files').insert({
+      document_id: docId,
+      name: filename,
+      alternative_text: alt,
+      caption: null,
+      focal_point: null,
+      width: 1024,
+      height: 1024,
+      formats: null,
+      hash: hash,
+      ext: '.png',
+      mime: 'image/png',
+      size: 93.0,
+      url: `/uploads/${filename}`,
+      preview_url: null,
+      provider: 'local',
+      provider_metadata: null,
+      folder_path: '/',
+      created_at: new Date(),
+      updated_at: new Date()
+    }).returning('id');
+
+    if (insertResult && insertResult[0]) {
+      imageId = typeof insertResult[0] === 'object' ? insertResult[0].id : insertResult[0];
+      strapi.log.info(`[programa-continuo-grupal] Created image entry with ID: ${imageId}`);
+    }
+  }
+
   const doc = strapi.documents.bind(strapi);
-  const pageData = getProgramaContinuoGrupalPageData();
+
+  const pageData = {
+    title: 'Programa Continuo Grupal',
+    slug: SLUG,
+    pageType: 'landing' as const,
+    excerpt: 'Aprende inglés en grupos pequeños de 4 a 8 personas, con horarios fijos sincrónicos.',
+    showInNavigation: true,
+    navigationLabel: 'Programa Continuo Grupal',
+    sections: [
+      {
+        __component: 'blocks.hero' as const,
+        eyebrow: 'Grupal reducido',
+        title: 'Programa Continuo Grupal: aprende inglés en comunidad',
+        subtitle: '',
+        variant: 'gradient_organic' as const,
+        alignment: 'center' as const,
+        primaryCta: {
+          label: 'Solicitar mi Diagnóstico de Nivel',
+          url: '/placement-test',
+          style: 'primary' as const,
+        },
+      },
+      {
+        __component: 'blocks.text-image' as const,
+        eyebrow: 'Introducción',
+        title: '¿Qué es el Programa Continuo Grupal?',
+        body: rt(
+          'Son clases sincrónicas en vivo, en horarios fijos, con grupos reducidos de 4 a 8 estudiantes. Mismo estándar de 120 horas académicas por nivel y mismo material de National Geographic Learning que el resto del programa continuo.'
+        ),
+        imagePosition: 'right' as const,
+        image: imageId,
+      },
+      {
+        __component: 'blocks.feature-list' as const,
+        eyebrow: 'Ventajas Exclusivas',
+        title: 'El valor de aprender en grupo',
+        subtitle: 'Aprender con otros acelera tus habilidades comunicativas y te mantiene motivado.',
+        columns: 3,
+        layout: 'standard' as const,
+        items: [
+          {
+            title: 'Práctica',
+            description: 'Práctica de conversación real con distintos compañeros, simulando contextos sociales diversos.',
+            iconName: 'message-circle',
+          },
+          {
+            title: 'Motivación y constancia',
+            description: 'Motivación y constancia reforzadas por la dinámica grupal.',
+            iconName: 'users',
+          },
+          {
+            title: 'Mejor relación',
+            description: 'Mejor relación costo-beneficio frente a las modalidades privadas.',
+            iconName: 'zap',
+          },
+        ],
+      },
+      {
+        __component: 'blocks.text-image' as const,
+        eyebrow: 'Público Objetivo',
+        title: '¿Para quién es ideal?',
+        body: rt(
+          'Ideal para estudiantes que disfrutan del intercambio social como parte del aprendizaje, y que pueden comprometerse con un horario fijo semanal.'
+        ),
+        imagePosition: 'left' as const,
+      },
+      {
+        __component: 'blocks.cta-banner' as const,
+        eyebrow: 'Únete a nosotros',
+        title: 'Empieza tu Programa Continuo Grupal.',
+        subtitle: 'Únete a un grupo y empieza tu proceso.',
+        overlayStrength: 'medium' as const,
+        primaryCta: {
+          label: 'Más Información',
+          url: 'https://wa.me/51938403729?text=Hola%20%F0%9F%91%8B%20Vengo%20de%20la%20p%C3%A1gina%20del%20Programa%20Continuo%20Grupal%20en%20la%20web%20de%20Universa%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n.%20Mi%20nombre%20es%20',
+          style: 'primary' as const,
+        },
+      },
+    ],
+    seo: {
+      metaTitle: 'Programa Continuo Grupal | Universa',
+      metaDescription: 'Aprende inglés en grupos pequeños de 4 a 8 personas, con horarios fijos sincrónicos. Aprende en comunidad con el respaldo de National Geographic Learning.',
+    },
+  };
 
   const existing = await doc('api::page.page').findMany({
     filters: { slug: { $eq: SLUG } },
@@ -358,15 +168,25 @@ export async function upsertProgramaContinuoGrupalPage(strapi: Core.Strapi) {
       status: 'published',
     });
     strapi.log.info(`[programa-continuo-grupal] Page updated (${documentId}).`);
-    await store.set({ key: VERSION_STORE_KEY, value: CONTENT_VERSION });
-    return documentId;
+  } else {
+    const created = await doc('api::page.page').create({
+      data: pageData,
+      status: 'published',
+    });
+    strapi.log.info(`[programa-continuo-grupal] Page created (${created.documentId}).`);
   }
 
-  const created = await doc('api::page.page').create({
-    data: pageData,
-    status: 'published',
-  });
-  strapi.log.info(`[programa-continuo-grupal] Page created (${created.documentId}).`);
   await store.set({ key: VERSION_STORE_KEY, value: CONTENT_VERSION });
-  return created.documentId;
+}
+
+export function getProgramaContinuoGrupalPageData() {
+  return {
+    title: 'Programa Continuo Grupal',
+    slug: SLUG,
+    pageType: 'landing' as const,
+    excerpt: 'Aprende inglés en grupos pequeños de 4 a 8 personas, con horarios fijos sincrónicos.',
+    showInNavigation: true,
+    navigationLabel: 'Programa Continuo Grupal',
+    sections: []
+  };
 }

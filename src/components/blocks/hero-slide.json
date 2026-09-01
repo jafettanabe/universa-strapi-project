@@ -18,6 +18,13 @@
         "images"
       ]
     },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "foregroundImageFocus": {
       "type": "string"
     },
