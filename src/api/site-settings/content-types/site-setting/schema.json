@@ -43,6 +43,9 @@
     "whatsappNumber": {
       "type": "string"
     },
+    "floatingWhatsappNumber": {
+      "type": "string"
+    },
     "address": {
       "type": "text"
     },
