@@ -18,6 +18,7 @@ import { upsertServiciosPage } from './bootstrap/servicios-page';
 import { upsertVirtualCoffeePage } from './bootstrap/virtual-coffee-page';
 import { upsertProfessionalMasteryLabPage } from './bootstrap/professional-mastery-lab-page';
 import { upsertMetodologiaPage } from './bootstrap/metodologia-page';
+import { upsertNosotrosPage } from './bootstrap/nosotros-page';
 
 
 export default {
@@ -56,6 +57,7 @@ export default {
     await upsertVirtualCoffeePage(strapi);
     await upsertProfessionalMasteryLabPage(strapi);
     await upsertMetodologiaPage(strapi);
+    await upsertNosotrosPage(strapi);
     await upsertHeaderProgramasNav(strapi);
     await upsertFooterProgramasNav(strapi);
     await upsertLegalPages(strapi);
