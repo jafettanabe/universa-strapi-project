@@ -672,6 +672,8 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     ctaLabel: Schema.Attribute.String;
+    ctaOpenInNewTab: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     ctaUrl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -683,7 +685,13 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     primaryNavigation: Schema.Attribute.Component<'navigation.nav-item', true>;
     publishedAt: Schema.Attribute.DateTime;
     secondaryLinkLabel: Schema.Attribute.String;
+    secondaryLinkOpenInNewTab: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     secondaryLinkUrl: Schema.Attribute.String;
+    tertiaryLinkLabel: Schema.Attribute.String;
+    tertiaryLinkOpenInNewTab: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    tertiaryLinkUrl: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -265,27 +265,15 @@ export interface BlocksHeroCarousel extends Struct.ComponentSchema {
 export interface BlocksHeroSlide extends Struct.ComponentSchema {
   collectionName: 'components_blocks_hero_slides';
   info: {
+    description: 'Slide de banner principal (imagen desktop, m\u00F3vil y enlace)';
     displayName: 'hero-slide';
   };
   attributes: {
-    accentLabel: Schema.Attribute.String;
-    accentTitle: Schema.Attribute.String;
-    bgColor: Schema.Attribute.String;
-    foregroundImage: Schema.Attribute.Media<'images'>;
-    foregroundImageFocus: Schema.Attribute.String;
+    desktopImage: Schema.Attribute.Media<'images'>;
     mobileImage: Schema.Attribute.Media<'images'>;
-    pillCta: Schema.Attribute.Component<'shared.cta', false>;
-    pillLabel: Schema.Attribute.String;
-    priceBadgeText: Schema.Attribute.String;
-    priceCta: Schema.Attribute.Component<'shared.cta', false>;
-    priceSuffix: Schema.Attribute.String;
-    priceValue: Schema.Attribute.String;
-    primaryCta: Schema.Attribute.Component<'shared.cta', false>;
-    secondaryCta: Schema.Attribute.Component<'shared.cta', false>;
-    subtitle: Schema.Attribute.Text;
-    textTone: Schema.Attribute.Enumeration<['dark', 'light']> &
-      Schema.Attribute.DefaultTo<'light'>;
-    title: Schema.Attribute.Text & Schema.Attribute.Required;
+    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 

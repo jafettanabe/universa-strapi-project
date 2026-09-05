@@ -1,17 +1,14 @@
 {
   "collectionName": "components_blocks_hero_slides",
   "info": {
-    "displayName": "hero-slide"
+    "displayName": "hero-slide",
+    "description": "Slide de banner principal (imagen desktop, móvil y enlace)"
   },
   "attributes": {
     "title": {
-      "type": "text",
-      "required": true
+      "type": "string"
     },
-    "subtitle": {
-      "type": "text"
-    },
-    "foregroundImage": {
+    "desktopImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -25,57 +22,12 @@
         "images"
       ]
     },
-    "foregroundImageFocus": {
+    "url": {
       "type": "string"
     },
-    "bgColor": {
-      "type": "string"
-    },
-    "textTone": {
-      "type": "enumeration",
-      "enum": [
-        "dark",
-        "light"
-      ],
-      "default": "light"
-    },
-    "primaryCta": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.cta"
-    },
-    "secondaryCta": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.cta"
-    },
-    "pillLabel": {
-      "type": "string"
-    },
-    "pillCta": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.cta"
-    },
-    "accentLabel": {
-      "type": "string"
-    },
-    "accentTitle": {
-      "type": "string"
-    },
-    "priceBadgeText": {
-      "type": "string"
-    },
-    "priceValue": {
-      "type": "string"
-    },
-    "priceSuffix": {
-      "type": "string"
-    },
-    "priceCta": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.cta"
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

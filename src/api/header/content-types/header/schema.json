@@ -28,11 +28,29 @@
     "ctaUrl": {
       "type": "string"
     },
+    "ctaOpenInNewTab": {
+      "type": "boolean",
+      "default": false
+    },
     "secondaryLinkLabel": {
       "type": "string"
     },
     "secondaryLinkUrl": {
       "type": "string"
+    },
+    "secondaryLinkOpenInNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "tertiaryLinkLabel": {
+      "type": "string"
+    },
+    "tertiaryLinkUrl": {
+      "type": "string"
+    },
+    "tertiaryLinkOpenInNewTab": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
