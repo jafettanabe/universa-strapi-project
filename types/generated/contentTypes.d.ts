@@ -979,6 +979,8 @@ export interface ApiPlacementSubmissionPlacementSubmission
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    docNumber: Schema.Attribute.String;
+    docType: Schema.Attribute.String;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
     level: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

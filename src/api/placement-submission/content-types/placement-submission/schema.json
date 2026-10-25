@@ -42,6 +42,12 @@
     },
     "ciclo": {
       "type": "string"
+    },
+    "docType": {
+      "type": "string"
+    },
+    "docNumber": {
+      "type": "string"
     }
   }
 }
